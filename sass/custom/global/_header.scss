@@ -1,0 +1,362 @@
+nav {
+	z-index: 1;
+
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		min-height: #{toRem(110)};
+
+		.logo {
+			font-size: 2rem;
+			img {
+				height: #{toRem(80)};
+			}
+		}
+
+		.nav-links {
+			display: flex;
+			justify-content: space-around;
+			li {
+				position: relative;
+				@include margin(0, 0, 0, 60);
+				a {
+					@include font-size(18);
+
+					text-transform: uppercase;
+					font-weight: 600;
+
+					&.log-in-btn {
+						@include padding(10, 16, 10, 16);
+						background-color: #2e8bca;
+						color: white;
+						border-radius: 6px;
+					}
+
+					@include set(768) {
+						font-size: 4rem;
+					}
+					@include set(450) {
+						font-size: 2rem;
+					}
+				}
+
+				.cart-icon {
+					cursor: pointer;
+					height: 1.5rem;
+
+					@include set(768) {
+						display: none;
+					}
+				}
+
+				@include set(450) {
+					font-size: 2rem;
+					margin: 2.5rem 0 !important;
+				}
+			}
+
+			&.nav-active {
+				@include set(500) {
+					width: 100%;
+				}
+			}
+		}
+
+		.ham-burger {
+			display: none;
+
+			.line {
+				width: 25px;
+				height: 3px;
+				background-color: $primary;
+				margin: 5px;
+				transition: all 0.3s ease;
+			}
+		}
+
+		.blur-bg {
+			display: none;
+			transition: all 0.3s ease;
+			overflow-y: hidden;
+
+			&.open {
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				height: 100vh;
+				width: 100%;
+				z-index: 1;
+				backdrop-filter: blur(2px);
+				background-color: #2e8bca5c;
+			}
+		}
+
+		.cart-container {
+			position: fixed;
+			height: 100vh;
+			top: 0;
+			right: 0;
+			background-color: $white;
+			overflow-y: scroll;
+			z-index: 4;
+			transform: translateX(100%);
+			transition: all 0.3s ease;
+
+			.cart-heading {
+				@include font-size(70);
+				font-weight: 800;
+				color: $primary;
+				@include margin(40, 60, 40, 60);
+				text-transform: uppercase;
+
+				@include set(555) {
+					@include margin(0, 25, 0, 25);
+				}
+			}
+
+			.cart-list-item {
+				.cart-card {
+					@include width(460);
+					@include height(180);
+					display: flex;
+					background-color: #eaf3fa;
+					@include padding(20, 20, 20, 20);
+					@include margin(40, 60, 40, 60);
+					border-radius: #{toRem(10)};
+					box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+					.left-cart {
+						width: 30%;
+						@include height(142);
+						border-radius: #{toRem(10)};
+
+						img {
+							width: 100%;
+							height: 100%;
+							object-fit: cover;
+							border-radius: #{toRem(10)};
+						}
+					}
+					.right-cart {
+						@include padding(0, 0, 0, 20);
+						h1 {
+							@include font-size(24);
+							font-weight: 800;
+							color: $grey;
+							line-height: 130%;
+							margin-bottom: 0.5rem;
+						}
+						.price-item {
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+							h3 {
+								@include font-size(24);
+								font-weight: 800;
+								color: $primary;
+								@include margin(0, 20, 0, 0);
+							}
+							.item-changer {
+								display: flex;
+								align-items: center;
+
+								button {
+									background-color: rgb(94, 94, 94);
+									padding: 0.1rem 0.5rem;
+									@include margin(0, 10, 0, 10);
+									border-radius: 4px;
+									color: $white;
+								}
+
+								p {
+									background-color: $white;
+									padding: 0.1rem 0.5rem;
+									font-weight: 600;
+								}
+							}
+						}
+						.remove-item {
+							@include font-size(13);
+							background-color: #e00000;
+							color: $white;
+							display: inline;
+							@include padding(5, 10, 5, 10);
+							border-radius: 4px;
+							cursor: pointer;
+						}
+					}
+
+					@include set(555) {
+						@include margin(40, 25, 40, 25);
+						width: auto;
+					}
+				}
+			}
+
+			.cart-action-buttons {
+				@include margin(40, 60, 40, 60);
+				display: flex;
+				justify-content: space-between;
+
+				button {
+					@include font-size(24);
+					background-color: $primary;
+					color: #ffffff;
+					display: inline;
+					@include padding(10, 20, 10, 20);
+					border-radius: 4px;
+					cursor: pointer;
+					font-weight: 600;
+
+					&.secondary {
+						background-color: $white;
+						border: 1px solid $primary;
+						color: $primary;
+					}
+				}
+
+				@include set(555) {
+					@include margin(0, 16, 0, 16);
+				}
+			}
+
+			&.cart-open {
+				transform: translateX(0);
+			}
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+
+			@include set(555) {
+				width: 100%;
+				padding-bottom: 2rem;
+			}
+		}
+
+		.cart-blur-bg {
+			display: none;
+			transition: all 0.3s ease;
+			overflow-y: hidden;
+
+			&.open {
+				display: block;
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				height: 100vh;
+				width: 100%;
+				z-index: 3;
+				backdrop-filter: blur(2px);
+				background-color: #2e8bca5c;
+			}
+		}
+	}
+
+	@include set(768) {
+		background-color: $white;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+	}
+}
+
+#navigation {
+	&.header-sticky {
+		position: fixed;
+		width: 100%;
+		z-index: 10;
+
+		background: #ffffff;
+
+		background: linear-gradient(
+			90deg,
+			rgba(255, 255, 255, 0.8) 0,
+			#ffffff 100%
+		);
+		-webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+	}
+}
+
+@media screen and (max-width: 768px) {
+	body {
+		overflow-x: hidden;
+
+		nav {
+			position: fixed;
+			width: 100%;
+
+			.container {
+				.nav-links {
+					// overflow-y: hidden;
+					position: fixed;
+					height: 100vh;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					background-color: #2e8bca;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					width: 50%;
+					align-items: center;
+					transform: translateX(100%);
+					transition: transform 0.3s ease-in-out;
+					z-index: 2;
+					li {
+						margin: 50px 0px 50px 0px;
+						opacity: 1;
+						a {
+							color: #fff;
+						}
+					}
+
+					&.nav-active {
+						transform: translateX(0);
+					}
+				}
+
+				.ham-burger {
+					display: block;
+					z-index: 2;
+					display: flex;
+
+					.all-lines {
+						&.toggle {
+							.line1 {
+								transform: rotate(-45deg) translate(-5px, 6px);
+								background-color: $white;
+							}
+
+							.line2 {
+								opacity: 0;
+							}
+							.line3 {
+								transform: rotate(45deg) translate(-5px, -6px);
+								background-color: $white;
+							}
+						}
+					}
+
+					.cart-icon {
+						margin-right: 2rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes navLinkFade {
+	from {
+		opacity: 0;
+		transform: 50px;
+	}
+	to {
+		opacity: 1;
+		transform: 0;
+	}
+}
