@@ -34,11 +34,8 @@ $container = get_theme_mod('understrap_container_type');
 
 			<nav id="main-nav" class="" aria-labelledby="main-nav-label">
 				<div class="container">
-					<?php //echo get_custom_logo(); 
-					?>
-					<div class="logo">
-						<img src="/Genz/wp-content/uploads/2022/02/FinalLogo2-Blog-1-1.png" alt="">
-					</div>
+
+					<?php echo get_custom_logo(); ?>
 
 					<!-- The WordPress Menu goes here -->
 					<?php

@@ -1,0 +1,63 @@
+main {
+	&#homePage {
+		section.main-slider {
+			@include padding(110, 0, 170, 0);
+			background-color: #effaff;
+            
+			.container {
+				.carousel {
+					.carousel-inner {
+						.carousel-item {
+							.row {
+								justify-content: space-between;
+								img {
+									@include width(616);
+									max-width: #{toRem(616)};
+									@include height(392);
+									border-radius: #{toRem(20)};
+								}
+
+								.carousel-info {
+									display: flex;
+									justify-content: center;
+									flex-direction: column;
+
+									h2 {
+										font-weight: 700;
+										@include font-size(58);
+										letter-spacing: #{toRem(-1)};
+										line-height: 100%;
+										@include margin(0, 0, 10, 0);
+									}
+									p {
+										@include font-size(22);
+										line-height: 120%;
+										@include margin(0, 0, 20, 0);
+									}
+									span.read-more {
+										a {
+											background-color: $primary;
+											display: inline;
+											@include padding(10, 18, 10, 18);
+											color: white;
+											border-radius: #{toRem(6)};
+										}
+									}
+								}
+							}
+						}
+					}
+					.carousel-indicators {
+						bottom: #{toRem(-110)};
+						li {
+							@include width(12);
+							@include height(12);
+							background-color: $primary;
+							border-radius: 50%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
