@@ -5,33 +5,32 @@ nav {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		min-height: #{toRem(110)};
+		min-height: #{toRem(78)};
 
 		.logo {
 			font-size: 2rem;
 			img {
-				height: #{toRem(80)};
+				height: #{toRem(78)};
 			}
 		}
 
 		.nav-links {
 			display: flex;
 			justify-content: space-around;
+			margin: 0;
+
 			li {
 				position: relative;
-				@include margin(0, 0, 0, 60);
+				list-style: none;
+				display: contents;
+
 				a {
-					@include font-size(18);
-
-					text-transform: uppercase;
-					font-weight: 600;
-
-					&.log-in-btn {
-						@include padding(10, 16, 10, 16);
-						background-color: #2e8bca;
-						color: white;
-						border-radius: 6px;
-					}
+					@include font-size(16);
+					padding: 0;
+					@include margin(0, 0, 0, 26);
+					text-transform: capitalize;
+					font-weight: 400;
+					color: grey;
 
 					@include set(768) {
 						font-size: 4rem;
