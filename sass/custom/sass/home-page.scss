@@ -108,5 +108,50 @@ main {
 				}
 			}
 		}
+
+		section.trending-slider {
+			.container {
+				.row {
+					border: 1px solid grey;
+					padding: 0.5rem 0rem;
+					border-radius: 10px;
+
+					.tr-topic {
+						p {
+							color: $primary;
+							@include font-size(20);
+							margin: 0;
+						}
+					}
+					.tr-slide {
+						.carousel {
+							@include padding(0, 90, 0, 0);
+							.carousel-inner {
+								.carousel-item {
+									.carousel-info {
+										h2 {
+											@include font-size(21);
+											font-weight: 700;
+											margin: 0;
+										}
+									}
+								}
+							}
+							a {
+								width: fit-content;
+								background-color: $primary;
+								height: 30px;
+								width: 30px;
+								border-radius: 50%;
+
+								&.carousel-control-prev {
+									left: 94%;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }

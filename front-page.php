@@ -68,16 +68,21 @@ get_header();
     <section class="trending-slider">
         <div class="container">
             <div class="row">
-                <div class="col-md-1">
+                <div class="col-md-1 tr-topic">
                     <p>Trending</p>
                 </div>
-                <div class="col-md-11">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000">
+                <div class="col-md-11 tr-slide">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="2000">
                         <div class="carousel-inner">
                             <!-- Loop Started -->
                             <div class="carousel-item active">
                                 <div class="carousel-info">
                                     <h2>Apple iPad Pro M1(2021) launched in Nepal</h2>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="carousel-info">
+                                    <h2>Hello</h2>
                                 </div>
                             </div>
                         </div>
