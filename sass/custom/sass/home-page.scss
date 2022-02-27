@@ -10,17 +10,19 @@ main {
 						.carousel-item {
 							.row {
 								justify-content: space-between;
+
 								img {
 									@include width(616);
 									max-width: #{toRem(616)};
 									@include height(392);
-									border-radius: #{toRem(20)};
+									border-radius: #{toRem(20)};									
 								}
 
 								.carousel-info {
 									display: flex;
 									justify-content: center;
 									flex-direction: column;
+									
 
 									h2 {
 										font-weight: 700;
