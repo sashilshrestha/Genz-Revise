@@ -72,7 +72,7 @@ get_header();
                     <p>Trending</p>
                 </div>
                 <div class="col-md-11 tr-slide">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="2000">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <!-- Loop Started -->
                             <div class="carousel-item active">
@@ -86,21 +86,108 @@ get_header();
                                 </div>
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
                         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>
-
-        </div>
         </div>
     </section>
+    <section class="latest-news">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 main-container">
+                    <div class="latest-title">
+                        <h2>The Latest</h2>
+                        <a href="" class="view-all">View All</a>
+                    </div>
+                    <div class="news-container">
+                        <div class="big-news">
+                            <div class="news-card">
+                                <div class="news-info">
+                                    <div class="topic"><span>Games</span></div>
+                                    <div class="title">
+                                        <h1>Pokemon Sword and Shield Are Holding a New Gigantamax Pokemon Event</h1>
+                                    </div>
+                                </div>
+                                <div class="bg-overlay"></div>
+                                <img src="https://media-exp1.licdn.com/dms/image/C4D1BAQF9i8DMUsCcBw/company-background_10000/0/1560976153674?e=2159024400&v=beta&t=mLk8Yl5nFy4WMnzSQEWpZSM5dVN5Z5e-_118IjUtrOE" alt="">
+                            </div>
+                            <div class="news-card">
+                                <div class="news-info">
+                                    <div class="topic"><span>Games</span></div>
+                                    <div class="title">
+                                        <h1>Pokemon Sword and Shield Are Holding a New Gigantamax Pokemon Event</h1>
+                                    </div>
+                                </div>
+                                <div class="bg-overlay"></div>
+                                <img src="https://media-exp1.licdn.com/dms/image/C4D1BAQF9i8DMUsCcBw/company-background_10000/0/1560976153674?e=2159024400&v=beta&t=mLk8Yl5nFy4WMnzSQEWpZSM5dVN5Z5e-_118IjUtrOE" alt="">
+                            </div>
+                            <div class="news-card">
+                                <div class="news-info">
+                                    <div class="topic"><span>Games</span></div>
+                                    <div class="title">
+                                        <h1>Pokemon Sword and Shield Are Holding a New Gigantamax Pokemon Event</h1>
+                                    </div>
+                                </div>
+                                <div class="bg-overlay"></div>
+                                <img src="https://media-exp1.licdn.com/dms/image/C4D1BAQF9i8DMUsCcBw/company-background_10000/0/1560976153674?e=2159024400&v=beta&t=mLk8Yl5nFy4WMnzSQEWpZSM5dVN5Z5e-_118IjUtrOE" alt="">
+                            </div>
+                        </div>
+                        <div class="small-news">
+                            <div class="news-card">
+                                <img src="https://media-exp1.licdn.com/dms/image/C4D1BAQF9i8DMUsCcBw/company-background_10000/0/1560976153674?e=2159024400&v=beta&t=mLk8Yl5nFy4WMnzSQEWpZSM5dVN5Z5e-_118IjUtrOE" alt="">
+                                <div class="news-info">
+                                    <div class="topic"><span>Games</span></div>
+                                    <div class="title">
+                                        <h1>Pokemon Sword and Shield Are Holding a New Gigantamax Pokemon Event</h1>
+                                    </div>
+                                    <p class="desc">
+                                        Pros Durable build Decent display Huge Battery Good software optimization Cons Average camera Average performance…
+                                    </p>
+                                    <div class="pub-date">February 3, 2022</div>
+                                </div>
+                            </div>
+                            <div class="news-card">
+                                <img src="https://media-exp1.licdn.com/dms/image/C4D1BAQF9i8DMUsCcBw/company-background_10000/0/1560976153674?e=2159024400&v=beta&t=mLk8Yl5nFy4WMnzSQEWpZSM5dVN5Z5e-_118IjUtrOE" alt="">
+                                <div class="news-info">
+                                    <div class="topic"><span>Games</span></div>
+                                    <div class="title">
+                                        <h1>Pokemon Sword and Shield Are Holding a New Gigantamax Pokemon Event</h1>
+                                    </div>
+                                    <p class="desc">
+                                        Pros Durable build Decent display Huge Battery Good software optimization Cons Average camera Average performance…
+                                    </p>
+                                    <div class="pub-date">February 3, 2022</div>
+                                </div>
+                            </div>
+                            <div class="news-card">
+                                <img src="https://media-exp1.licdn.com/dms/image/C4D1BAQF9i8DMUsCcBw/company-background_10000/0/1560976153674?e=2159024400&v=beta&t=mLk8Yl5nFy4WMnzSQEWpZSM5dVN5Z5e-_118IjUtrOE" alt="">
+                                <div class="news-info">
+                                    <div class="topic"><span>Games</span></div>
+                                    <div class="title">
+                                        <h1>Pokemon Sword and Shield Are Holding a New Gigantamax Pokemon Event</h1>
+                                    </div>
+                                    <p class="desc">
+                                        Pros Durable build Decent display Huge Battery Good software optimization Cons Average camera Average performance…
+                                    </p>
+                                    <div class="pub-date">February 3, 2022</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 side-container"></div>
+            </div>
+        </div>
+    </section>
+
 </main>
 <?php
 get_footer();
