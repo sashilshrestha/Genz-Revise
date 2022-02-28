@@ -53,29 +53,3 @@ function prefix_category_title($title)
 	return $title;
 }
 add_filter('get_the_archive_title', 'prefix_category_title');
-
-
-//Featured Image in Category Section
-function addTitleFieldToCat()
-{
-	$cat_title = get_term_meta($_POST['tag_ID'], '_pagetitle', true);
-?>
-	<tr class="form-field">
-		<th scope="row" valign="top"><label for="cat_page_title"><?php _e('Category Page Title'); ?></label></th>
-		<td>
-			<input type="text" name="cat_title" id="cat_title" value="<?php echo $cat_title ?>"><br />
-			<span class="description"><?php _e('Title for the Category '); ?></span>
-		</td>
-	</tr>
-<?php
-
-}
-add_action('edit_category_form_fields', 'addTitleFieldToCat');
-
-function saveCategoryFields()
-{
-	if (isset($_POST['cat_title'])) {
-		update_term_meta($_POST['tag_ID'], '_pagetitle', $_POST['cat_title']);
-	}
-}
-add_action('edited_category', 'saveCategoryFields');

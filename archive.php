@@ -21,7 +21,12 @@ $container = get_theme_mod('understrap_container_type');
 		<?php the_archive_title(); ?>
 	</h1>
 	<div class="hd-overlay"></div>
-	<img src="<?php echo get_field('category_thumbnail'); ?>" alt="">
+	<?php
+	$term = get_queried_object();
+	$image = get_field('category_thumbnail', $term);
+	?>
+	<img src="<?php echo $image ?>" alt="">
+
 
 </section>
 
