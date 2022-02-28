@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Post rendering content according to caller of get_template_part
  *
@@ -6,51 +7,22 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
+
+$thumb_id = get_post_thumbnail_id();
+$thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 ?>
 
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-
-	<header class="entry-header">
-
-		<?php
-		the_title(
-			sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
-			'</a></h2>'
-		);
-		?>
-
-		<?php if ( 'post' === get_post_type() ) : ?>
-
-			<div class="entry-meta">
-				<?php understrap_posted_on(); ?>
-			</div><!-- .entry-meta -->
-
-		<?php endif; ?>
-
-	</header><!-- .entry-header -->
-
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
-
-	<div class="entry-content">
-
-		<?php the_excerpt(); ?>
-
-		<?php
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'understrap' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-
-		<?php understrap_entry_footer(); ?>
-
-	</footer><!-- .entry-footer -->
-
-</article><!-- #post-## -->
+<div class="news-card" id="post-<?php the_ID(); ?>">
+	<img src="<?php echo $thumb_url[0] ?>" alt="">
+	<div class="news-info">
+		<div class="topic"><span>Games</span></div>
+		<div class="title">
+			<h1><?php the_title(); ?></h1>
+		</div>
+		<p class="desc">
+			Pros Durable build Decent display Huge Battery Good software optimization Cons Average camera Average performance…
+		</p>
+		<div class="pub-date"><?php understrap_posted_on(); ?></div>
+	</div>
+</div>
