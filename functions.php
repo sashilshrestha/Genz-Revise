@@ -1,4 +1,5 @@
 <?php
+
 /**
  * UnderStrap functions and definitions
  *
@@ -6,7 +7,7 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 // UnderStrap's includes directory.
 $understrap_inc_dir = 'inc';
@@ -29,16 +30,52 @@ $understrap_includes = array(
 );
 
 // Load WooCommerce functions if WooCommerce is activated.
-if ( class_exists( 'WooCommerce' ) ) {
+if (class_exists('WooCommerce')) {
 	$understrap_includes[] = '/woocommerce.php';
 }
 
 // Load Jetpack compatibility file if Jetpack is activiated.
-if ( class_exists( 'Jetpack' ) ) {
+if (class_exists('Jetpack')) {
 	$understrap_includes[] = '/jetpack.php';
 }
 
 // Include files.
-foreach ( $understrap_includes as $file ) {
-	require_once get_theme_file_path( $understrap_inc_dir . $file );
+foreach ($understrap_includes as $file) {
+	require_once get_theme_file_path($understrap_inc_dir . $file);
 }
+
+// Removing Category Keyword
+function prefix_category_title($title)
+{
+	if (is_category()) {
+		$title = single_cat_title('', false);
+	}
+	return $title;
+}
+add_filter('get_the_archive_title', 'prefix_category_title');
+
+
+//Featured Image in Category Section
+function addTitleFieldToCat()
+{
+	$cat_title = get_term_meta($_POST['tag_ID'], '_pagetitle', true);
+?>
+	<tr class="form-field">
+		<th scope="row" valign="top"><label for="cat_page_title"><?php _e('Category Page Title'); ?></label></th>
+		<td>
+			<input type="text" name="cat_title" id="cat_title" value="<?php echo $cat_title ?>"><br />
+			<span class="description"><?php _e('Title for the Category '); ?></span>
+		</td>
+	</tr>
+<?php
+
+}
+add_action('edit_category_form_fields', 'addTitleFieldToCat');
+
+function saveCategoryFields()
+{
+	if (isset($_POST['cat_title'])) {
+		update_term_meta($_POST['tag_ID'], '_pagetitle', $_POST['cat_title']);
+	}
+}
+add_action('edited_category', 'saveCategoryFields');
