@@ -14,19 +14,49 @@ get_header();
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
-                    <!-- Loop Started -->
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="carousel-info col-md-6">
-                                <h2>Apple iPad Pro M1(2021) launched in Nepal</h2>
-                                <p>5th generation of iPad Pro launched in Nepal With an M1 chip on It. According to Apple, this ...</p>
-                                <span class="read-more">
-                                    <a href="">Read More</a>
-                                </span>
+                    <?php
+                    $args = array(
+                        'post_type' => 'post',
+                        'posts_per_page' => -1,
+                        'order' => 'ASC',
+                        'orderby' => 'menu_order',
+                    );
+                    $allposts = new WP_Query($args);
+                    $i = true;
+
+                    while ($allposts->have_posts()) :
+                        $allposts->the_post();
+
+                        $thumb_id = get_post_thumbnail_id();
+                        $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+
+                        if (get_field('main_slider_toggler') == '1') {
+                    ?>
+                            <!-- Loop Started -->
+                            <div class="carousel-item <?php if ($i == '1') {
+                                                            echo 'active';
+                                                        } ?>">
+                                <div class="row">
+                                    <div class="carousel-info col-md-6">
+                                        <h2><?php the_title(); ?></h2>
+                                        <p>5th generation of iPad Pro launched in Nepal With an M1 chip on It. According to Apple, this ...</p>
+                                        <span class="read-more">
+                                            <a href="">Read More</a>
+                                        </span>
+                                    </div>
+                                    <img class="col-md-6" src="<?php echo $thumb_url[0] ?>">
+                                </div>
                             </div>
-                            <img class="col-md-6" src="https://media-exp1.licdn.com/dms/image/C4D1BAQF9i8DMUsCcBw/company-background_10000/0/1560976153674?e=2159024400&v=beta&t=mLk8Yl5nFy4WMnzSQEWpZSM5dVN5Z5e-_118IjUtrOE">
-                        </div>
-                    </div>
+                        <?php
+                            $i = false;
+                        }
+                        ?>
+                    <?php
+
+                    endwhile;
+                    wp_reset_postdata();
+                    ?>
+                    <!-- Post Calling Loop Ends -->
                 </div>
             </div>
         </div>
