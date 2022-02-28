@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Single post partial template
  *
@@ -6,39 +7,34 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
+
+$thumb_id = get_post_thumbnail_id();
+$thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+	<img src="<?php echo $thumb_url[0]; ?>" alt="" class="content-image">
 
-	<header class="entry-header">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="entry-content">
 
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+				<?php the_content(); ?>
 
-		<div class="entry-meta">
+				<?php
+				wp_link_pages(
+					array(
+						'before' => '<div class="page-links">' . __('Pages:', 'understrap'),
+						'after'  => '</div>',
+					)
+				);
+				?>
 
-			<?php understrap_posted_on(); ?>
+			</div><!-- .entry-content -->
 
-		</div><!-- .entry-meta -->
-
-	</header><!-- .entry-header -->
-
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
-
-	<div class="entry-content">
-
-		<?php the_content(); ?>
-
-		<?php
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'understrap' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-
-	</div><!-- .entry-content -->
+		</div>
+	</div>
 
 	<footer class="entry-footer">
 

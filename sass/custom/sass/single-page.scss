@@ -1,0 +1,48 @@
+header.single-header {
+	background-color: #effaff;
+	.container {
+		.row {
+			@include padding(100, 0, 210, 0);
+			h1.single-title {
+				@include font-size(65);
+				letter-spacing: #{toRem(-1)};
+				font-weight: 700;
+				line-height: 120%;
+			}
+			.single-meta {
+				@include font-size(32);
+				letter-spacing: #{toRem(-1)};
+				line-height: 120%;
+				color: #979797;
+			}
+		}
+	}
+}
+
+#single-wrapper {
+	.container {
+		margin-top: #{toRem(-140)};
+
+		.row {
+			.site-main {
+				article {
+					img.content-image {
+						@include height(453);
+						width: 100%;
+						object-fit: cover;
+						@include margin(0, 0, 40, 0);
+					}
+
+					.row {
+						.col-md-9 {
+							.entry-content {
+								@include font-size(22);
+								line-height: 140%;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
