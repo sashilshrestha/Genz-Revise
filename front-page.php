@@ -139,77 +139,76 @@ get_header();
                     </div>
                     <div class="news-container">
                         <div class="big-news">
-                            <div class="news-card">
-                                <div class="news-info">
-                                    <div class="topic"><span>Games</span></div>
-                                    <div class="title">
-                                        <h1>Pokemon Sword and Shield Are Holding a New Gigantamax Pokemon Event</h1>
+                            <?php
+                            $args = array(
+                                'post_type' => 'post',
+                                'post_status' => 'publish',
+                                'posts_per_page' => 3,
+                                'order' => 'DESC',
+                                'orderby' => 'publish_date',
+                            );
+                            $bigposts = new WP_Query($args);
+
+                            while ($bigposts->have_posts()) :
+                                $bigposts->the_post();
+
+                                $thumb_id = get_post_thumbnail_id();
+                                $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+
+                            ?>
+                                <div class="news-card">
+                                    <div class="news-info">
+                                        <div class="topic"><span><?php echo $cat; ?></span></div>
+                                        <div class="title">
+                                            <h1><?php the_title(); ?></h1>
+                                        </div>
                                     </div>
+                                    <div class="bg-overlay"></div>
+                                    <img src="<?php echo $thumb_url[0] ?>" alt="">
                                 </div>
-                                <div class="bg-overlay"></div>
-                                <img src="https://media-exp1.licdn.com/dms/image/C4D1BAQF9i8DMUsCcBw/company-background_10000/0/1560976153674?e=2159024400&v=beta&t=mLk8Yl5nFy4WMnzSQEWpZSM5dVN5Z5e-_118IjUtrOE" alt="">
-                            </div>
-                            <div class="news-card">
-                                <div class="news-info">
-                                    <div class="topic"><span>Games</span></div>
-                                    <div class="title">
-                                        <h1>Pokemon Sword and Shield Are Holding a New Gigantamax Pokemon Event</h1>
-                                    </div>
-                                </div>
-                                <div class="bg-overlay"></div>
-                                <img src="https://media-exp1.licdn.com/dms/image/C4D1BAQF9i8DMUsCcBw/company-background_10000/0/1560976153674?e=2159024400&v=beta&t=mLk8Yl5nFy4WMnzSQEWpZSM5dVN5Z5e-_118IjUtrOE" alt="">
-                            </div>
-                            <div class="news-card">
-                                <div class="news-info">
-                                    <div class="topic"><span>Games</span></div>
-                                    <div class="title">
-                                        <h1>Pokemon Sword and Shield Are Holding a New Gigantamax Pokemon Event</h1>
-                                    </div>
-                                </div>
-                                <div class="bg-overlay"></div>
-                                <img src="https://media-exp1.licdn.com/dms/image/C4D1BAQF9i8DMUsCcBw/company-background_10000/0/1560976153674?e=2159024400&v=beta&t=mLk8Yl5nFy4WMnzSQEWpZSM5dVN5Z5e-_118IjUtrOE" alt="">
-                            </div>
+                            <?php
+                                $not_in_next_three[] = get_the_ID();
+                            endwhile;
+                            wp_reset_postdata();
+                            ?>
                         </div>
                         <div class="small-news">
-                            <div class="news-card">
-                                <img src="https://media-exp1.licdn.com/dms/image/C4D1BAQF9i8DMUsCcBw/company-background_10000/0/1560976153674?e=2159024400&v=beta&t=mLk8Yl5nFy4WMnzSQEWpZSM5dVN5Z5e-_118IjUtrOE" alt="">
-                                <div class="news-info">
-                                    <div class="topic"><span>Games</span></div>
-                                    <div class="title">
-                                        <h1>Pokemon Sword and Shield Are Holding a New Gigantamax Pokemon Event</h1>
+                            <?php
+                            $args = array(
+                                'post_type' => 'post',
+                                'post_status' => 'publish',
+                                'posts_per_page' => -1,
+                                'order' => 'DESC',
+                                'orderby' => 'publish_date',
+                                'post__not_in' => $not_in_next_three
+
+                            );
+                            $bigposts = new WP_Query($args);
+
+                            while ($bigposts->have_posts()) :
+                                $bigposts->the_post();
+
+                                $thumb_id = get_post_thumbnail_id();
+                                $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+
+                            ?>
+                                <div class="news-card">
+                                    <img src="<?php echo $thumb_url[0] ?>" alt="">
+                                    <div class="news-info">
+                                        <div class="topic"><span>Games</span></div>
+                                        <div class="title">
+                                            <h1><?php the_title(); ?></h1>
+                                        </div>
+                                        <p class="desc">
+                                            Pros Durable build Decent display Huge Battery Good software optimization Cons Average camera Average performance…
+                                        </p>
+                                        <div class="pub-date">February 3, 2022</div>
                                     </div>
-                                    <p class="desc">
-                                        Pros Durable build Decent display Huge Battery Good software optimization Cons Average camera Average performance…
-                                    </p>
-                                    <div class="pub-date">February 3, 2022</div>
                                 </div>
-                            </div>
-                            <div class="news-card">
-                                <img src="https://media-exp1.licdn.com/dms/image/C4D1BAQF9i8DMUsCcBw/company-background_10000/0/1560976153674?e=2159024400&v=beta&t=mLk8Yl5nFy4WMnzSQEWpZSM5dVN5Z5e-_118IjUtrOE" alt="">
-                                <div class="news-info">
-                                    <div class="topic"><span>Games</span></div>
-                                    <div class="title">
-                                        <h1>Pokemon Sword and Shield Are Holding a New Gigantamax Pokemon Event</h1>
-                                    </div>
-                                    <p class="desc">
-                                        Pros Durable build Decent display Huge Battery Good software optimization Cons Average camera Average performance…
-                                    </p>
-                                    <div class="pub-date">February 3, 2022</div>
-                                </div>
-                            </div>
-                            <div class="news-card">
-                                <img src="https://media-exp1.licdn.com/dms/image/C4D1BAQF9i8DMUsCcBw/company-background_10000/0/1560976153674?e=2159024400&v=beta&t=mLk8Yl5nFy4WMnzSQEWpZSM5dVN5Z5e-_118IjUtrOE" alt="">
-                                <div class="news-info">
-                                    <div class="topic"><span>Games</span></div>
-                                    <div class="title">
-                                        <h1>Pokemon Sword and Shield Are Holding a New Gigantamax Pokemon Event</h1>
-                                    </div>
-                                    <p class="desc">
-                                        Pros Durable build Decent display Huge Battery Good software optimization Cons Average camera Average performance…
-                                    </p>
-                                    <div class="pub-date">February 3, 2022</div>
-                                </div>
-                            </div>
+                            <?php
+                            endwhile;
+                            wp_reset_postdata();
+                            ?>
                         </div>
                     </div>
                 </div>
