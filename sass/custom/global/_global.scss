@@ -65,4 +65,33 @@ img {
 	transition: all 0.2s ease-in-out;
 }
 
-// Woocommerce Override
+.pagination-container {
+	display: flex;
+	justify-content: center;
+	ul {
+		&.pagination {
+			display: flex;
+			align-items: center;
+			li {
+				a {
+					@include margin(0, 5, 0, 5);
+					width: 2rem;
+					height: 2rem;
+					background-color: $primary;
+					color: white;
+					border-radius: 50%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					&.switcher-pages {
+						width: fit-content;
+						height: auto;
+						background-color: transparent;
+						border-radius: 0;
+						color: $primary;
+					}
+				}
+			}
+		}
+	}
+}

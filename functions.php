@@ -85,7 +85,7 @@ function pp_pagination_nav()
 		$links[] = $paged + 1;
 	}
 
-	echo '<div class=""><ul class="pagination">' . "\n";
+	echo '<div class="pagination-container"><ul class="pagination">' . "\n";
 
 	/** Previous Post Link Function */
 	if (get_previous_posts_link())
@@ -131,4 +131,14 @@ add_filter('previous_posts_link_attributes', 'posts_link_attributes');
 function posts_link_attributes()
 {
 	return 'class="switcher-pages"';
+}
+
+add_action( 'template_redirect', 'redirect_to_other_page' );
+function redirect_to_other_page() {
+    if ( is_page( 143 ) ) {
+	  
+      wp_redirect( '"'.home_url().'/services/messenger/"', 301 );
+      ///wp_redirect( 'example.com/page', 301 ); 
+    exit;
+    }
 }
