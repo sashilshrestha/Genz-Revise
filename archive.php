@@ -47,10 +47,11 @@ $container = get_theme_mod('understrap_container_type');
 											<div class="small-news">
 												<?php
 												$args = array(
-													'posts_per_page' => -1,
+													'posts_per_page' => 5,
 													'order' => 'DESC',
 													'post_status' => 'publish',
 													'orderby' => 'publish_date',
+													'paged' => $paged
 												);
 												$categoryposts = new WP_Query($args);
 
@@ -87,11 +88,13 @@ $container = get_theme_mod('understrap_container_type');
 													</div>
 											<?php
 												endwhile;
+												pp_pagination_nav();
 												wp_reset_postdata();
 											} else {
 												get_template_part('loop-templates/content', 'none');
 											}
 											?>
+
 											<!-- ----- -->
 											</div>
 										</div>

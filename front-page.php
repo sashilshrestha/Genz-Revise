@@ -177,10 +177,11 @@ get_header();
                             $args = array(
                                 'post_type' => 'post',
                                 'post_status' => 'publish',
-                                'posts_per_page' => -1,
+                                'posts_per_page' => 10,
                                 'order' => 'DESC',
                                 'orderby' => 'publish_date',
-                                'post__not_in' => $not_in_next_three
+                                'post__not_in' => $not_in_next_three,
+                                'paged' => $paged
 
                             );
                             $bigposts = new WP_Query($args);
@@ -207,6 +208,7 @@ get_header();
                                 </div>
                             <?php
                             endwhile;
+                            pp_pagination_nav();
                             wp_reset_postdata();
                             ?>
                         </div>

@@ -112,6 +112,7 @@ main {
 
 		section.trending-slider {
 			@include margin(0, 0, 45, 0);
+			display: none;
 			.container {
 				.row {
 					border: 1px solid #dddddd;
@@ -256,7 +257,7 @@ main {
 										min-height: #{toRem(180)};
 										height: #{toRem(180)};
 										border-radius: #{toRem(10)};
-										object-fit: cover
+										object-fit: cover;
 									}
 									.news-info {
 										@include padding(0, 0, 0, 18);
