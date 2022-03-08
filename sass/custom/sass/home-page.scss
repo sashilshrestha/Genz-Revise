@@ -193,12 +193,25 @@ main {
 										@include padding(0, 25, 20, 25);
 										.topic {
 											span {
-												@include font-size(14);
-												background-color: $primary;
-												color: white;
-												text-transform: uppercase;
-												@include padding(4, 10, 4, 10);
-												border-radius: #{toRem(4)};
+												.my-tags-list {
+													display: inline-block;
+													margin: 0;
+													padding: 0;
+													
+													li {
+														@include font-size(14);
+														background-color: $primary;
+														color: white;
+														text-transform: uppercase;
+														@include padding(4, 10, 4, 10);
+														border-radius: #{toRem(4)};
+														list-style: none;
+
+														a {
+															color: white;
+														}
+													}
+												}
 											}
 										}
 										.title {

@@ -160,9 +160,17 @@ if ($ispage == 1) {
                                     $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 
                                 ?>
+
                                     <div class="news-card">
                                         <div class="news-info">
-                                            <div class="topic"><span><?php echo $cat; ?></span></div>
+                                            <div class="topic"><span> <?php
+                                                                        echo get_the_tag_list(
+                                                                            '<ul class="my-tags-list"><li>',
+                                                                            '</li><li>',
+                                                                            '</li></ul>',
+                                                                            get_queried_object_id()
+                                                                        );
+                                                                        ?></span></div>
                                             <div class="title">
                                                 <h1><?php the_title(); ?></h1>
                                             </div>
@@ -196,7 +204,16 @@ if ($ispage == 1) {
                                     $thumb_id = get_post_thumbnail_id();
                                     $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 
+
+
                                 ?>
+                                    <?php $tags = get_tags(); ?>
+                                    <div class="tags">
+                                        <?php foreach ($tags as $tag) { ?>
+                                            <a href="<?php echo get_tag_link($tag->term_id); ?> " rel="tag"><?php echo $tag->name; ?></a>
+                                        <?php } ?>
+                                    </div>
+
                                     <div class="news-card">
                                         <img src="<?php echo $thumb_url[0] ?>" alt="">
                                         <div class="news-info">
