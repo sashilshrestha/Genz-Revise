@@ -11,19 +11,14 @@ if ($ispage == 1) {
     <main id="homePage">
         <section class="main-slider">
             <div class="container">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
+                <div class="carousel slide">
                     <div class="carousel-inner">
                         <?php
                         $args = array(
                             'post_type' => 'post',
-                            'posts_per_page' => -1,
-                            'order' => 'ASC',
-                            'orderby' => 'menu_order',
+                            'posts_per_page' => 2,
+                            'order' => 'DESC',
+                            'orderby' => 'publish_date',
                         );
                         $allposts = new WP_Query($args);
                         $i = true;
@@ -37,9 +32,7 @@ if ($ispage == 1) {
                             if (get_field('main_slider_toggler') == '1') {
                         ?>
                                 <!-- Loop Started -->
-                                <div class="carousel-item <?php if ($i == '1') {
-                                                                echo 'active';
-                                                            } ?>">
+                                <div class="carousel-item active">
                                     <div class="row">
                                         <div class="carousel-info col-md-6">
                                             <h2><?php the_title(); ?></h2>
@@ -56,8 +49,8 @@ if ($ispage == 1) {
                             }
                             ?>
                         <?php
-
                         endwhile;
+                        $not_in_next_main[] = get_the_ID();
                         wp_reset_postdata();
                         ?>
                         <!-- Post Calling Loop Ends -->
@@ -69,55 +62,41 @@ if ($ispage == 1) {
         <section class="featured-posts splide">
             <div class="container splide__track">
                 <div class="ow splide__list">
-                    <div class="co splide__slide">
-                        <div class="ft-card">
-                            <h3>Find Unique Myspace Layoutrs Nowadays</h3>
-                            <div class="bg-overlay"></div>
-                            <img src="https://images.unsplash.com/photo-1645584616771-e3180ff32aa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-                        </div>
-                    </div>
-                    <div class="co splide__slide">
-                        <div class="ft-card">
-                            <h3>Find Unique Myspace Layoutrs Nowadays</h3>
-                            <div class="bg-overlay"></div>
-                            <img src="https://images.unsplash.com/photo-1645584616771-e3180ff32aa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-                        </div>
-                    </div>
-                    <div class="co splide__slide">
-                        <div class="ft-card">
-                            <h3>Find Unique Myspace Layoutrs Nowadays</h3>
-                            <div class="bg-overlay"></div>
-                            <img src="https://images.unsplash.com/photo-1645584616771-e3180ff32aa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-                        </div>
-                    </div>
-                    <div class="co splide__slide">
-                        <div class="ft-card">
-                            <h3>Find Unique Myspace Layoutrs Nowadays</h3>
-                            <div class="bg-overlay"></div>
-                            <img src="https://images.unsplash.com/photo-1645584616771-e3180ff32aa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-                        </div>
-                    </div>
-                    <div class="co splide__slide">
-                        <div class="ft-card">
-                            <h3>Find Unique Myspace Layoutrs Nowadays</h3>
-                            <div class="bg-overlay"></div>
-                            <img src="https://images.unsplash.com/photo-1645584616771-e3180ff32aa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-                        </div>
-                    </div>
+                    <?php
+                    $args = array(
+                        'post_type' => 'post',
+                        'post_status' => 'publish',
+                        'posts_per_page' => -1,
+                        'order' => 'DESC',
+                        'orderby' => 'publish_date',
+                        'post__not_in' => $not_in_next_main,
+                    );
+                    $sliderposts = new WP_Query($args);
+
+                    while ($sliderposts->have_posts()) :
+                        $sliderposts->the_post();
+
+                        $thumb_id = get_post_thumbnail_id();
+                        $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+                        if (get_field('main_slider_toggler') == '1') {
+                    ?>
+                            <div class="splide__slide">
+                                <div class="ft-card">
+                                    <h3><?php the_title(); ?></h3>
+                                    <div class="bg-overlay"></div>
+                                    <img src="<?php echo $thumb_url[0]; ?>" alt="">
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    endwhile;
+                    wp_reset_postdata();
+                    ?>
                 </div>
             </div>
         </section>
 
-        <!-- Slider main container -->
-        <div class="splide">
-            <div class="splide__track container">
-                <ul class="splide__list">
-                    <li class="splide__slide">Slide 01</li>
-                    <li class="splide__slide">Slide 02</li>
-                    <li class="splide__slide">Slide 03</li>
-                </ul>
-            </div>
-        </div>
+
         <section class="trending-slider">
             <div class="container">
                 <div class="row">
@@ -213,7 +192,6 @@ if ($ispage == 1) {
                                     'orderby' => 'publish_date',
                                     'post__not_in' => $not_in_next_three,
                                     'paged' => $paged
-
                                 );
                                 $bigposts = new WP_Query($args);
 
@@ -222,8 +200,6 @@ if ($ispage == 1) {
 
                                     $thumb_id = get_post_thumbnail_id();
                                     $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-
-
 
                                 ?>
                                     <?php $tags = get_tags(); ?>
@@ -235,10 +211,6 @@ if ($ispage == 1) {
                                                                     ?></a>
                                         <?php //} 
                                         ?>
-
-
-
-
                                     </div>
 
                                     <div class="news-card">

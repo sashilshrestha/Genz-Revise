@@ -4,12 +4,17 @@ document.addEventListener("DOMContentLoaded", function () {
 		type: "loop",
 		perPage: 4,
 		perMove: 1,
-		rewind: true,
-
-		// isNavigation: true,
+		autoplay: true,
+		gap: "1rem",
+		drag: false,
+		interval: 5000,
+		pauseOnHover: true,
+		lazyLoad: "sequential",
+		arrows: false,
 		breakpoints: {
 			640: {
 				perPage: 1,
+				drag: true,
 			},
 		},
 	});

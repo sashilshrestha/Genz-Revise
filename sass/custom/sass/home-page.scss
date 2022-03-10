@@ -66,8 +66,8 @@ main {
 				top: -4rem;
 				position: relative;
 
-				.row {
-					.col-md-3 {
+				.splide__list {
+					.splide__slide {
 						.ft-card {
 							min-height: #{toRem(254)};
 							position: relative;
@@ -197,7 +197,7 @@ main {
 													display: inline-block;
 													margin: 0;
 													padding: 0;
-													
+
 													li {
 														@include font-size(14);
 														background-color: $primary;
