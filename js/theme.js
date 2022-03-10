@@ -7070,6 +7070,22 @@
   }
 })();
 // Add your JS customizations here
+document.addEventListener("DOMContentLoaded", function () {
+  var splide = new Splide(".splide", {
+    type: "loop",
+    perPage: 4,
+    perMove: 1,
+    rewind: true,
+    // isNavigation: true,
+    breakpoints: {
+      640: {
+        perPage: 1
+      }
+    }
+  });
+  splide.mount();
+});
+
 const navSlide = () => {
   const burger = document.querySelector(".all-lines");
   const nav = document.querySelector(".nav-links");

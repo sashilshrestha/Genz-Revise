@@ -133,12 +133,13 @@ function posts_link_attributes()
 	return 'class="switcher-pages"';
 }
 
-add_action( 'template_redirect', 'redirect_to_other_page' );
-function redirect_to_other_page() {
-    if ( is_page( 143 ) ) {
-	  
-      wp_redirect( '"'.home_url().'/services/messenger/"', 301 );
-      ///wp_redirect( 'example.com/page', 301 ); 
-    exit;
-    }
+add_action('template_redirect', 'redirect_to_other_page');
+function redirect_to_other_page()
+{
+	if (is_page(143)) {
+
+		wp_redirect('"' . home_url() . '/services/messenger/"', 301);
+		///wp_redirect( 'example.com/page', 301 ); 
+		exit;
+	}
 }

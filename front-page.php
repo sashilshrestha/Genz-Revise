@@ -65,31 +65,39 @@ if ($ispage == 1) {
                 </div>
             </div>
         </section>
-        <section class="featured-posts">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
+
+        <section class="featured-posts splide">
+            <div class="container splide__track">
+                <div class="ow splide__list">
+                    <div class="co splide__slide">
                         <div class="ft-card">
                             <h3>Find Unique Myspace Layoutrs Nowadays</h3>
                             <div class="bg-overlay"></div>
                             <img src="https://images.unsplash.com/photo-1645584616771-e3180ff32aa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="co splide__slide">
                         <div class="ft-card">
                             <h3>Find Unique Myspace Layoutrs Nowadays</h3>
                             <div class="bg-overlay"></div>
                             <img src="https://images.unsplash.com/photo-1645584616771-e3180ff32aa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="co splide__slide">
                         <div class="ft-card">
                             <h3>Find Unique Myspace Layoutrs Nowadays</h3>
                             <div class="bg-overlay"></div>
                             <img src="https://images.unsplash.com/photo-1645584616771-e3180ff32aa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="co splide__slide">
+                        <div class="ft-card">
+                            <h3>Find Unique Myspace Layoutrs Nowadays</h3>
+                            <div class="bg-overlay"></div>
+                            <img src="https://images.unsplash.com/photo-1645584616771-e3180ff32aa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+                        </div>
+                    </div>
+                    <div class="co splide__slide">
                         <div class="ft-card">
                             <h3>Find Unique Myspace Layoutrs Nowadays</h3>
                             <div class="bg-overlay"></div>
@@ -99,6 +107,17 @@ if ($ispage == 1) {
                 </div>
             </div>
         </section>
+
+        <!-- Slider main container -->
+        <div class="splide">
+            <div class="splide__track container">
+                <ul class="splide__list">
+                    <li class="splide__slide">Slide 01</li>
+                    <li class="splide__slide">Slide 02</li>
+                    <li class="splide__slide">Slide 03</li>
+                </ul>
+            </div>
+        </div>
         <section class="trending-slider">
             <div class="container">
                 <div class="row">
