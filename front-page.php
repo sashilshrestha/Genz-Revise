@@ -16,12 +16,20 @@ if ($ispage == 1) {
                         <?php
                         $args = array(
                             'post_type' => 'post',
-                            'posts_per_page' => 2,
+                            'posts_per_page' => 1,
                             'order' => 'DESC',
                             'orderby' => 'publish_date',
+                            'meta_query' => array(
+                                array(
+                                    'key' => 'main_slider_toggler',
+                                    'value' => '1',
+                                    'compare' => '=',
+                                    'type' => 'NUMERIC',
+                                ),
+                            ),
                         );
                         $allposts = new WP_Query($args);
-                        $i = true;
+
 
                         while ($allposts->have_posts()) :
                             $allposts->the_post();
@@ -29,25 +37,22 @@ if ($ispage == 1) {
                             $thumb_id = get_post_thumbnail_id();
                             $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 
-                            if (get_field('main_slider_toggler') == '1') {
+
                         ?>
-                                <!-- Loop Started -->
-                                <div class="carousel-item active">
-                                    <div class="row">
-                                        <div class="carousel-info col-md-6">
-                                            <h2><?php the_title(); ?></h2>
-                                            <p>5th generation of iPad Pro launched in Nepal With an M1 chip on It. According to Apple, this ...</p>
-                                            <span class="read-more">
-                                                <a href="">Read More</a>
-                                            </span>
-                                        </div>
-                                        <img class="col-md-6" src="<?php echo $thumb_url[0] ?>">
+                            <!-- Loop Started -->
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="carousel-info col-md-6">
+                                        <h2><?php the_title(); ?></h2>
+                                        <p>5th generation of iPad Pro launched in Nepal With an M1 chip on It. According to Apple, this ...</p>
+                                        <span class="read-more">
+                                            <a href="">Read More</a>
+                                        </span>
                                     </div>
+                                    <img class="col-md-6" src="<?php echo $thumb_url[0] ?>">
                                 </div>
-                            <?php
-                                $i = false;
-                            }
-                            ?>
+                            </div>
+
                         <?php
                         endwhile;
                         $not_in_next_main[] = get_the_ID();
@@ -70,6 +75,14 @@ if ($ispage == 1) {
                         'order' => 'DESC',
                         'orderby' => 'publish_date',
                         'post__not_in' => $not_in_next_main,
+                        'meta_query' => array(
+                            array(
+                                'key' => 'main_slider_toggler',
+                                'value' => '1',
+                                'compare' => '=',
+                                'type' => 'NUMERIC',
+                            ),
+                        ),
                     );
                     $sliderposts = new WP_Query($args);
 
@@ -78,17 +91,17 @@ if ($ispage == 1) {
 
                         $thumb_id = get_post_thumbnail_id();
                         $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-                        if (get_field('main_slider_toggler') == '1') {
+
                     ?>
-                            <div class="splide__slide">
-                                <div class="ft-card">
-                                    <h3><?php the_title(); ?></h3>
-                                    <div class="bg-overlay"></div>
-                                    <img src="<?php echo $thumb_url[0]; ?>" alt="">
-                                </div>
+                        <div class="splide__slide">
+                            <div class="ft-card">
+                                <h3><?php the_title(); ?></h3>
+                                <div class="bg-overlay"></div>
+                                <img src="<?php echo $thumb_url[0]; ?>" alt="">
                             </div>
+                        </div>
                     <?php
-                        }
+
                     endwhile;
                     wp_reset_postdata();
                     ?>
@@ -97,40 +110,7 @@ if ($ispage == 1) {
         </section>
 
 
-        <section class="trending-slider">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-1 tr-topic">
-                        <p>Trending</p>
-                    </div>
-                    <div class="col-md-11 tr-slide">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <!-- Loop Started -->
-                                <div class="carousel-item active">
-                                    <div class="carousel-info">
-                                        <h2>Apple iPad Pro M1(2021) launched in Nepal</h2>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="carousel-info">
-                                        <h2>Hello</h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
         <section class="latest-news">
             <div class="container">
                 <div class="row">
@@ -148,6 +128,14 @@ if ($ispage == 1) {
                                     'posts_per_page' => 3,
                                     'order' => 'DESC',
                                     'orderby' => 'publish_date',
+                                    'meta_query' => array(
+                                        array(
+                                            'key' => 'main_slider_toggler',
+                                            'value' => '0',
+                                            'compare' => '=',
+                                            'type' => 'NUMERIC',
+                                        ),
+                                    ),
                                 );
                                 $bigposts = new WP_Query($args);
 
@@ -156,28 +144,29 @@ if ($ispage == 1) {
 
                                     $thumb_id = get_post_thumbnail_id();
                                     $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-
+                                    if (get_field('main_slider_toggler') != '1') {
                                 ?>
-
-                                    <div class="news-card">
-                                        <div class="news-info">
-                                            <div class="topic"><span> <?php
-                                                                        // echo get_the_tag_list(
-                                                                        //     '<ul class="my-tags-list"><li>',
-                                                                        //     '</li><li>',
-                                                                        //     '</li></ul>',
-                                                                        //     get_queried_object_id()
-                                                                        // );
-                                                                        ?></span></div>
-                                            <div class="title">
-                                                <h1><?php the_title(); ?></h1>
+                                        <div class="news-card">
+                                            <div class="news-info">
+                                                <div class="topic"><span> <?php
+                                                                            // echo get_the_tag_list(
+                                                                            //     '<ul class="my-tags-list"><li>',
+                                                                            //     '</li><li>',
+                                                                            //     '</li></ul>',
+                                                                            //     get_queried_object_id()
+                                                                            // );
+                                                                            ?></span></div>
+                                                <div class="title">
+                                                    <h1><?php the_title(); ?></h1>
+                                                </div>
                                             </div>
+                                            <div class="bg-overlay"></div>
+                                            <img src="<?php echo $thumb_url[0] ?>" alt="">
                                         </div>
-                                        <div class="bg-overlay"></div>
-                                        <img src="<?php echo $thumb_url[0] ?>" alt="">
-                                    </div>
                                 <?php
+                                    }
                                     $not_in_next_three[] = get_the_ID();
+
                                 endwhile;
                                 wp_reset_postdata();
                                 ?>
@@ -190,6 +179,14 @@ if ($ispage == 1) {
                                     'posts_per_page' => 10,
                                     'order' => 'DESC',
                                     'orderby' => 'publish_date',
+                                    'meta_query' => array(
+                                        array(
+                                            'key' => 'main_slider_toggler',
+                                            'value' => '0',
+                                            'compare' => '=',
+                                            'type' => 'NUMERIC',
+                                        ),
+                                    ),
                                     'post__not_in' => $not_in_next_three,
                                     'paged' => $paged
                                 );
@@ -252,62 +249,64 @@ if ($ispage == 1) {
 <?php
 } else {
 ?>
-    <section class="latest-news">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9 main-container">
-                    <div class="latest-title">
-                        <h2>The Latest</h2>
-                        <a href="" class="view-all">View All</a>
-                    </div>
-                    <div class="news-container">
+    <main id="nextPage">
+        <section class="latest-news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 main-container">
+                        <div class="latest-title">
+                            <h2>Else Part Ma xa Hai</h2>
+                            <a href="" class="view-all">View All</a>
+                        </div>
+                        <div class="news-container">
 
-                        <div class="small-news">
-                            <?php
-                            $args = array(
-                                'post_type' => 'post',
-                                'post_status' => 'publish',
-                                'posts_per_page' => 10,
-                                'order' => 'DESC',
-                                'orderby' => 'publish_date',
-                                // 'post__not_in' => $not_in_next_three,
-                                'paged' => $paged
+                            <div class="small-news">
+                                <?php
+                                $args = array(
+                                    'post_type' => 'post',
+                                    'post_status' => 'publish',
+                                    'posts_per_page' => 10,
+                                    'order' => 'DESC',
+                                    'orderby' => 'publish_date',
+                                    // 'post__not_in' => $not_in_next_three,
+                                    'paged' => $paged
 
-                            );
-                            $bigposts = new WP_Query($args);
+                                );
+                                $bigposts = new WP_Query($args);
 
-                            while ($bigposts->have_posts()) :
-                                $bigposts->the_post();
+                                while ($bigposts->have_posts()) :
+                                    $bigposts->the_post();
 
-                                $thumb_id = get_post_thumbnail_id();
-                                $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+                                    $thumb_id = get_post_thumbnail_id();
+                                    $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 
-                            ?>
-                                <div class="news-card">
-                                    <img src="<?php echo $thumb_url[0] ?>" alt="">
-                                    <div class="news-info">
-                                        <div class="topic"><span>Games</span></div>
-                                        <div class="title">
-                                            <h1><?php the_title(); ?></h1>
+                                ?>
+                                    <div class="news-card">
+                                        <img src="<?php echo $thumb_url[0] ?>" alt="">
+                                        <div class="news-info">
+                                            <div class="topic"><span>Games</span></div>
+                                            <div class="title">
+                                                <h1><?php the_title(); ?></h1>
+                                            </div>
+                                            <p class="desc">
+                                                Pros Durable build Decent display Huge Battery Good software optimization Cons Average camera Average performance…
+                                            </p>
+                                            <div class="pub-date">February 3, 2022</div>
                                         </div>
-                                        <p class="desc">
-                                            Pros Durable build Decent display Huge Battery Good software optimization Cons Average camera Average performance…
-                                        </p>
-                                        <div class="pub-date">February 3, 2022</div>
                                     </div>
-                                </div>
-                            <?php
-                            endwhile;
-                            pp_pagination_nav();
-                            wp_reset_postdata();
-                            ?>
+                                <?php
+                                endwhile;
+                                pp_pagination_nav();
+                                wp_reset_postdata();
+                                ?>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-md-3 side-container"></div>
                 </div>
-                <div class="col-md-3 side-container"></div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 <?php
 }
 ?>
