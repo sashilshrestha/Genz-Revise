@@ -7072,12 +7072,13 @@
 // Add your JS customizations here
 document.addEventListener("DOMContentLoaded", function () {
   var splide = new Splide(".splide", {
-    type: "loop",
+    type: "slide",
     perPage: 4,
-    perMove: 1,
+    perMove: 4,
     autoplay: true,
+    dragMinThreshold: 5000,
     gap: "1rem",
-    drag: false,
+    drag: true,
     interval: 5000,
     pauseOnHover: true,
     lazyLoad: "sequential",

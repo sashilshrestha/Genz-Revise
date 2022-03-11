@@ -41,5 +41,10 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 		<?php understrap_entry_footer(); ?>
 
 	</footer><!-- .entry-footer -->
+	<?php
+	if (comments_open()) :
+		comments_template();
+	endif;
+	?>
 
 </article><!-- #post-## -->

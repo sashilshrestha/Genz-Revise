@@ -46,12 +46,16 @@ $container = get_theme_mod('understrap_container_type');
 										<div class="news-container">
 											<div class="small-news">
 												<?php
+												$category = get_queried_object();
+												$postcat = $category->term_id;
+
 												$args = array(
-													'posts_per_page' => 5,
+													'posts_per_page' => 10,
 													'order' => 'DESC',
 													'post_status' => 'publish',
 													'orderby' => 'publish_date',
-													'paged' => $paged
+													'paged' => $paged,
+													'cat' => $postcat
 												);
 												$categoryposts = new WP_Query($args);
 
@@ -59,24 +63,24 @@ $container = get_theme_mod('understrap_container_type');
 												while ($categoryposts->have_posts()) :
 													$categoryposts->the_post();
 
+													// For image url
 													$thumb_id = get_post_thumbnail_id();
 													$thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 
-													$cat = '';
-													$category = get_the_terms(get_the_ID(), 'category');
-													$terms = get_terms(array('post_types' => 'post', 'taxonomy' => 'category'));
-													$cat = $term->name;
-													/*
-											* Include the Post-Format-specific template for the content.
-											* If you want to override this in a child theme, then include a file
-											* called content-___.php (where ___ is the Post Format name) and that will be used instead.
-											*/
-													// get_template_part('loop-templates/content', get_post_format());
 												?>
 													<div class="news-card" id="post-<?php the_ID(); ?>">
 														<img src="<?php echo $thumb_url[0] ?>" alt="">
 														<div class="news-info">
-															<div class="topic"><span><?php echo $cat; ?></span></div>
+															<div class="topic">
+																<?php
+																$categories = get_the_terms($post->ID, 'category');
+																foreach ($categories as $category) {
+																?>
+																	<a href="<?php echo $category_link = get_category_link($category->term_id); ?>"><span><?php echo $category->name; ?></span></a>
+																<?php
+																}
+																?>
+															</div>
 															<div class="title">
 																<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 															</div>

@@ -46,7 +46,7 @@ if ($ispage == 1) {
                                         <h2><?php the_title(); ?></h2>
                                         <p>5th generation of iPad Pro launched in Nepal With an M1 chip on It. According to Apple, this ...</p>
                                         <span class="read-more">
-                                            <a href="">Read More</a>
+                                            <a href="<?php the_permalink(); ?>">Read More</a>
                                         </span>
                                     </div>
                                     <img class="col-md-6" src="<?php echo $thumb_url[0] ?>">
@@ -64,8 +64,8 @@ if ($ispage == 1) {
             </div>
         </section>
 
-        <section class="featured-posts splide">
-            <div class="container splide__track">
+        <section class="featured-posts splide container">
+            <div class="splide__track container">
                 <div class="ow splide__list">
                     <?php
                     $args = array(
@@ -108,9 +108,6 @@ if ($ispage == 1) {
                 </div>
             </div>
         </section>
-
-
-
         <section class="latest-news">
             <div class="container">
                 <div class="row">
@@ -148,16 +145,21 @@ if ($ispage == 1) {
                                 ?>
                                         <div class="news-card">
                                             <div class="news-info">
-                                                <div class="topic"><span> <?php
-                                                                            // echo get_the_tag_list(
-                                                                            //     '<ul class="my-tags-list"><li>',
-                                                                            //     '</li><li>',
-                                                                            //     '</li></ul>',
-                                                                            //     get_queried_object_id()
-                                                                            // );
-                                                                            ?></span></div>
+                                                <div class="topic">
+                                                    <?php
+                                                    $categories = get_the_terms($post->ID, 'category');
+
+                                                    foreach ($categories as $category) {
+                                                    ?>
+                                                        <a href="<?php echo $category_link = get_category_link($category->term_id); ?>"><span><?php echo $category->name; ?></span></a>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </div>
                                                 <div class="title">
-                                                    <h1><?php the_title(); ?></h1>
+                                                    <a href="<?php the_permalink(); ?>">
+                                                        <h1><?php the_title(); ?></h1>
+                                                    </a>
                                                 </div>
                                             </div>
                                             <div class="bg-overlay"></div>
@@ -199,16 +201,8 @@ if ($ispage == 1) {
                                     $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 
                                 ?>
-                                    <?php $tags = get_tags(); ?>
-                                    <div class="tags">
-                                        <?php //foreach ($tags as $tag) { 
-                                        ?>
-                                        <a href="<?php //echo get_tag_link($tag->term_id); 
-                                                    ?> " rel="tag"><?php //echo $tag->name; 
-                                                                    ?></a>
-                                        <?php //} 
-                                        ?>
-                                    </div>
+
+
 
                                     <div class="news-card">
                                         <img src="<?php echo $thumb_url[0] ?>" alt="">
