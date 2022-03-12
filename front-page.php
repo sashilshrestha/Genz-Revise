@@ -21,7 +21,7 @@ if ($ispage == 1) {
                             'orderby' => 'publish_date',
                             'meta_query' => array(
                                 array(
-                                    'key' => 'main_slider_toggler',
+                                    'key' => 'main_news_highlight',
                                     'value' => '1',
                                     'compare' => '=',
                                     'type' => 'NUMERIC',
@@ -30,14 +30,11 @@ if ($ispage == 1) {
                         );
                         $allposts = new WP_Query($args);
 
-
                         while ($allposts->have_posts()) :
                             $allposts->the_post();
-
+                            // For Image Call
                             $thumb_id = get_post_thumbnail_id();
                             $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-
-
                         ?>
                             <!-- Loop Started -->
                             <div class="carousel-item active">
@@ -52,10 +49,8 @@ if ($ispage == 1) {
                                     <img class="col-md-6" src="<?php echo $thumb_url[0] ?>">
                                 </div>
                             </div>
-
                         <?php
                         endwhile;
-                        $not_in_next_main[] = get_the_ID();
                         wp_reset_postdata();
                         ?>
                         <!-- Post Calling Loop Ends -->
@@ -63,7 +58,7 @@ if ($ispage == 1) {
                 </div>
             </div>
         </section>
-
+        <!-- Main Slider Featured     -->
         <section class="featured-posts splide container">
             <div class="splide__track container">
                 <div class="ow splide__list">
@@ -74,7 +69,7 @@ if ($ispage == 1) {
                         'posts_per_page' => -1,
                         'order' => 'DESC',
                         'orderby' => 'publish_date',
-                        'post__not_in' => $not_in_next_main,
+                        // 'post__not_in' => $not_in_next_main,
                         'meta_query' => array(
                             array(
                                 'key' => 'main_slider_toggler',
@@ -108,6 +103,7 @@ if ($ispage == 1) {
                 </div>
             </div>
         </section>
+
         <section class="latest-news">
             <div class="container">
                 <div class="row">
@@ -132,47 +128,46 @@ if ($ispage == 1) {
                                             'compare' => '=',
                                             'type' => 'NUMERIC',
                                         ),
-                                    ),
+                                    )
                                 );
                                 $bigposts = new WP_Query($args);
 
                                 while ($bigposts->have_posts()) :
                                     $bigposts->the_post();
-
+                                    // For Image URL
                                     $thumb_id = get_post_thumbnail_id();
                                     $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-                                    if (get_field('main_slider_toggler') != '1') {
                                 ?>
-                                        <div class="news-card">
-                                            <div class="news-info">
-                                                <div class="topic">
-                                                    <?php
-                                                    $categories = get_the_terms($post->ID, 'category');
+                                    <!-- Looped -->
+                                    <div class="news-card">
+                                        <div class="news-info">
+                                            <div class="topic">
+                                                <?php
+                                                $categories = get_the_terms($post->ID, 'category');
 
-                                                    foreach ($categories as $category) {
-                                                    ?>
-                                                        <a href="<?php echo $category_link = get_category_link($category->term_id); ?>"><span><?php echo $category->name; ?></span></a>
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </div>
-                                                <div class="title">
-                                                    <a href="<?php the_permalink(); ?>">
-                                                        <h1><?php the_title(); ?></h1>
-                                                    </a>
-                                                </div>
+                                                foreach ($categories as $category) {
+                                                ?>
+                                                    <a href="<?php echo $category_link = get_category_link($category->term_id); ?>"><span><?php echo $category->name; ?></span></a>
+                                                <?php
+                                                }
+                                                ?>
                                             </div>
-                                            <div class="bg-overlay"></div>
-                                            <img src="<?php echo $thumb_url[0] ?>" alt="">
+                                            <div class="title">
+                                                <a href="<?php the_permalink(); ?>">
+                                                    <h1><?php the_title(); ?></h1>
+                                                </a>
+                                            </div>
                                         </div>
+                                        <div class="bg-overlay"></div>
+                                        <img src="<?php echo $thumb_url[0] ?>" alt="">
+                                    </div>
                                 <?php
-                                    }
                                     $not_in_next_three[] = get_the_ID();
-
                                 endwhile;
                                 wp_reset_postdata();
                                 ?>
                             </div>
+                            <!-- List of Normal News -->
                             <div class="small-news">
                                 <?php
                                 $args = array(
