@@ -235,7 +235,40 @@ if ($ispage == 1) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 side-container"></div>
+                    <div class="col-md-3 side-container">
+                        <?php
+                        $args = array(
+                            'post_type' => 'post',
+                            'posts_per_page' => 5,
+                            'order' => 'DESC',
+                            'orderby' => 'publish_date',
+                            'meta_query' => array(
+                                array(
+                                    'key' => 'top_stories',
+                                    'value' => '1',
+                                    'compare' => '=',
+                                    'type' => 'NUMERIC',
+                                ),
+                            ),
+                        );
+                        $allposts = new WP_Query($args);
+
+
+                        while ($allposts->have_posts()) :
+                            $allposts->the_post();
+
+                            $thumb_id = get_post_thumbnail_id();
+                            $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+
+
+                        ?>
+                            <h1><?php the_title(); ?></h1>
+                        <?php
+                        endwhile;
+                        $not_in_next_main[] = get_the_ID();
+                        wp_reset_postdata();
+                        ?>
+                    </div>
                 </div>
             </div>
         </section>

@@ -103,7 +103,9 @@ $container = get_theme_mod('understrap_container_type');
 											</div>
 										</div>
 									</div>
-									<div class="col-md-3 side-container"></div>
+									<div class="col-md-3 side-container">
+										<?php echo get_sidebar(); ?>
+									</div>
 								</div>
 							</div>
 						</section>
