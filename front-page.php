@@ -262,11 +262,25 @@ if ($ispage == 1) {
                         ?>
 
                             <div class="side-card">
-                                <div class="side-card__img">
-                                    <img src="<?php echo $thumb_url[0]; ?>" alt="">
-                                </div>
-                                <div class="side-card__info">
-                                    <h3><?php the_title(); ?></h3>
+                                <div class="row">
+                                    <div class="side-card__img col-md-4">
+                                        <img src="<?php echo $thumb_url[0]; ?>" alt="">
+                                    </div>
+                                    <div class="side-card__info col-md-8">
+                                        <h3><?php //the_title(); 
+                                            ?>Yarsa Games: A Nepali Mobile Gaming App that Crossed 100 M+ Downloads</h3>
+                                        <span class="topic">
+                                            <?php
+                                            $categories = get_the_terms($post->ID, 'category');
+
+                                            foreach ($categories as $category) {
+                                            ?>
+                                                <a href="<?php echo $category_link = get_category_link($category->term_id); ?>"><span><?php echo $category->name; ?></span></a>
+                                            <?php
+                                            }
+                                            ?>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         <?php
