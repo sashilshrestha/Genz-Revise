@@ -1,6 +1,6 @@
 nav {
 	z-index: 1;
-	background-color: #effaff;
+	background-color: $darker;
 
 	.container {
 		display: flex;
@@ -11,14 +11,15 @@ nav {
 		.logo {
 			font-size: 2rem;
 			img {
-				height: #{toRem(78)};
+				@include height(51);
+				@include width(90);
 			}
 		}
 
 		.navbar-brand {
 			img {
-				@include height(60);
-				@include width(183);
+				@include height(51);
+				@include width(90);
 			}
 		}
 

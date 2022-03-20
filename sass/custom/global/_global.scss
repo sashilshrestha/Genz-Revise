@@ -100,13 +100,13 @@ li {
 	.splide__pagination__page {
 		width: 1rem;
 		height: 1rem;
-		background-color: #0083fd;
+		background-color: $primary;
 		border-radius: 50%;
 		opacity: 0.5;
 
 		&.is-active {
 			opacity: 1;
-			background-color: #0083fd;
+			background-color: $primary;
 			transform: scale(1);
 		}
 	}

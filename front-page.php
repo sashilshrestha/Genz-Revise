@@ -90,7 +90,10 @@ if ($ispage == 1) {
                     ?>
                         <div class="splide__slide">
                             <div class="ft-card">
-                                <h3><?php the_title(); ?></h3>
+                                <a href="<?php the_permalink() ?>">
+                                    <h3><?php //the_title(); 
+                                        ?> Find unique Myspace Layouts Nowadyas in the present context.</h3>
+                                </a>
                                 <div class="bg-overlay"></div>
                                 <img src="<?php echo $thumb_url[0]; ?>" alt="">
                             </div>
@@ -154,7 +157,8 @@ if ($ispage == 1) {
                                             </div>
                                             <div class="title">
                                                 <a href="<?php the_permalink(); ?>">
-                                                    <h1><?php the_title(); ?></h1>
+                                                    <h1><?php //the_title(); 
+                                                        ?>Find unique Myspace Layouts Nowadyas in the present context</h1>
                                                 </a>
                                             </div>
                                         </div>
@@ -173,7 +177,7 @@ if ($ispage == 1) {
                                 $args = array(
                                     'post_type' => 'post',
                                     'post_status' => 'publish',
-                                    'posts_per_page' => 10,
+                                    'posts_per_page' => 5,
                                     'order' => 'DESC',
                                     'orderby' => 'publish_date',
                                     'meta_query' => array(
@@ -196,9 +200,6 @@ if ($ispage == 1) {
                                     $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 
                                 ?>
-
-
-
                                     <div class="news-card">
                                         <img src="<?php echo $thumb_url[0] ?>" alt="">
                                         <div class="news-info">
@@ -214,7 +215,8 @@ if ($ispage == 1) {
                                                 ?>
                                             </div>
                                             <div class="title">
-                                                <h1><?php the_title(); ?></h1>
+                                                <h1><?php //the_title(); 
+                                                    ?>Yarsa Games: A Nepali Mobile Gaming App that Crossed 100 M+ Downloads</h1>
                                             </div>
                                             <p class="desc">
                                                 Pros Durable build Decent display Huge Battery Good software optimization Cons Average camera Average performance…
@@ -231,6 +233,9 @@ if ($ispage == 1) {
                         </div>
                     </div>
                     <div class="col-md-3 side-container">
+                        <div class="side-title">
+                            <h3>Top Stories</h3>
+                        </div>
                         <?php
                         $args = array(
                             'post_type' => 'post',
@@ -254,10 +259,16 @@ if ($ispage == 1) {
 
                             $thumb_id = get_post_thumbnail_id();
                             $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-
-
                         ?>
-                            <h1><?php the_title(); ?></h1>
+
+                            <div class="side-card">
+                                <div class="side-card__img">
+                                    <img src="<?php echo $thumb_url[0]; ?>" alt="">
+                                </div>
+                                <div class="side-card__info">
+                                    <h3><?php the_title(); ?></h3>
+                                </div>
+                            </div>
                         <?php
                         endwhile;
                         $not_in_next_main[] = get_the_ID();
@@ -291,7 +302,15 @@ if ($ispage == 1) {
                                     'order' => 'DESC',
                                     'orderby' => 'publish_date',
                                     // 'post__not_in' => $not_in_next_three,
-                                    'paged' => $paged
+                                    'paged' => $paged,
+                                    'meta_query' => array(
+                                        array(
+                                            'key' => 'main_slider_toggler',
+                                            'value' => '0',
+                                            'compare' => '=',
+                                            'type' => 'NUMERIC',
+                                        ),
+                                    ),
 
                                 );
                                 $bigposts = new WP_Query($args);

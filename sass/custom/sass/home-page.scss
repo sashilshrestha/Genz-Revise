@@ -2,7 +2,7 @@ main {
 	&#homePage {
 		section.main-slider {
 			@include padding(110, 0, 170, 0);
-			background-color: #effaff;
+			background-color: $darker;
 
 			.container {
 				.carousel {
@@ -25,8 +25,8 @@ main {
 
 									h2 {
 										font-weight: 700;
-										@include font-size(58);
-										letter-spacing: #{toRem(-1)};
+										@include font-size(52);
+										// letter-spacing: #{toRem(-1)};
 										line-height: 100%;
 										@include margin(0, 0, 10, 0);
 									}
@@ -40,7 +40,7 @@ main {
 											background-color: $primary;
 											display: inline;
 											@include padding(10, 18, 10, 18);
-											color: white;
+											color: $darker;
 											border-radius: #{toRem(6)};
 										}
 									}
@@ -85,9 +85,10 @@ main {
 								@include padding(0, 16, 0, 16);
 								@include font-size(23);
 								font-weight: 700;
-								line-height: 140%;
+								line-height: 130%;
 								color: white;
 								z-index: 1;
+								transition: all 0.2s ease-in-out;
 							}
 
 							.bg-overlay {
@@ -100,9 +101,15 @@ main {
 								background: rgb(9, 59, 75);
 								background: linear-gradient(
 									360deg,
-									rgba(9, 59, 75, 1) 0%,
-									rgba(44, 190, 239, 0) 100%
+									rgba($primary, 0.5) 0%,
+									rgba(255, 255, 255, 0.05) 100%
 								);
+							}
+
+							&:hover {
+								h3 {
+									transform: translateY(#{toRem(-8)});
+								}
 							}
 						}
 					}
@@ -168,10 +175,15 @@ main {
 							justify-content: space-between;
 							align-items: flex-end;
 							border-bottom: 1px solid #dddddd;
-							@include padding(0, 0, 10, 0);
+							@include padding(0, 0, 20, 0);
+							@include margin(0, 0, 25, 0);
 
 							h2 {
 								margin: 0;
+								font-weight: 700;
+							}
+							a {
+								color: $secondary;
 							}
 						}
 
@@ -186,6 +198,7 @@ main {
 									display: flex;
 									align-items: flex-end;
 									@include margin(0, 0, 46, 0);
+									box-shadow: 0px 4px 20px #00000067;
 
 									.news-info {
 										position: relative;
@@ -193,31 +206,19 @@ main {
 										@include padding(0, 25, 20, 25);
 										.topic {
 											span {
-												.my-tags-list {
-													display: inline-block;
-													margin: 0;
-													padding: 0;
-
-													li {
-														@include font-size(14);
-														background-color: $primary;
-														color: white;
-														text-transform: uppercase;
-														@include padding(4, 10, 4, 10);
-														border-radius: #{toRem(4)};
-														list-style: none;
-
-														a {
-															color: white;
-														}
-													}
-												}
+												@include font-size(14);
+												background-color: $primary;
+												color: $dark;
+												text-transform: uppercase;
+												@include padding(4, 10, 4, 10);
+												border-radius: #{toRem(4)};
+												list-style: none;
 											}
 										}
 										.title {
 											h1 {
+												@include margin(8, 0, 0, 0);
 												color: white;
-												margin: 0;
 											}
 										}
 									}
@@ -278,7 +279,7 @@ main {
 											span {
 												@include font-size(14);
 												background-color: $primary;
-												color: white;
+												color: $dark;
 												text-transform: uppercase;
 												@include padding(4, 10, 4, 10);
 												border-radius: #{toRem(4)};
@@ -296,9 +297,10 @@ main {
 											@include font-size(18);
 											line-height: 120%;
 											@include margin(0, 0, 5, 0);
-											color: #7d7d7d;
+											color: $text;
 										}
 										.pub-date {
+											color: $secondary;
 										}
 									}
 								}
@@ -306,6 +308,13 @@ main {
 						}
 					}
 					.side-container {
+						.side-card {
+							display: flex;
+							&__img {
+								@include width(80);
+								@include height(80);
+							}
+						}
 					}
 				}
 			}

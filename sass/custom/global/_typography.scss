@@ -1,30 +1,139 @@
 * {
-	font-family: "Circular" !important;
-}
-@font-face {
-	font-family: "Circular";
-	font-style: normal;
-	font-weight: 400;
-	src: local(""), url("../fonts/CircularStd-Book.woff") format("woff");
+	font-family: "Neue" !important;
+	font-weight: 300;
+	color: $text;
 }
 
-@font-face {
-	font-family: "Circular";
-	font-style: normal;
-	font-weight: 500;
-	src: local(""), url("../fonts/CircularStd-Medium.woff") format("woff");
+body {
+	background-color: $dark;
 }
-
-@font-face {
-	font-family: "Circular";
-	font-style: normal;
+h1,
+h2,
+h3,
+h4,
+h5 {
+	color: $white !important;
 	font-weight: 700;
-	src: local(""), url("../fonts/CircularStd-Bold.woff") format("woff");
 }
+// @font-face {
+// 	font-family: "Circular";
+// 	font-style: normal;
+// 	font-weight: 400;
+// 	src: local(""), url("../fonts/CircularStd-Book.woff") format("woff");
+// }
+
+// @font-face {
+// 	font-family: "Circular";
+// 	font-style: normal;
+// 	font-weight: 500;
+// 	src: local(""), url("../fonts/CircularStd-Medium.woff") format("woff");
+// }
+
+// @font-face {
+// 	font-family: "Circular";
+// 	font-style: normal;
+// 	font-weight: 700;
+// 	src: local(""), url("../fonts/CircularStd-Bold.woff") format("woff");
+// }
+
+// @font-face {
+// 	font-family: "Circular";
+// 	font-style: normal;
+// 	font-weight: 900;
+// 	src: local(""), url("../fonts/CircularStd-Black.woff") format("woff");
+// }
+
+// Sequel
+
+// @font-face {
+// 	font-family: "Sequel";
+// 	font-style: normal;
+// 	font-weight: 900;
+// 	src: local(""),
+// 		url("../fonts/Sequel\ Sans\ Black\ Body.otf") format("opentype");
+// }
+
+// @font-face {
+// 	font-family: "Sequel";
+// 	font-style: normal;
+// 	font-weight: 700;
+// 	src: local(""),
+// 		url("../fonts/Sequel\ Sans\ Bold\ Body.otf") format("opentype");
+// }
+
+// @font-face {
+// 	font-family: "Sequel";
+// 	font-style: normal;
+// 	font-weight: 400;
+// 	src: local(""),
+// 		url("../fonts/Sequel\ Sans\ Book\ Body.otf") format("opentype");
+// }
+
+// @font-face {
+// 	font-family: "Sequel";
+// 	font-style: normal;
+// 	font-weight: 800;
+// 	src: local(""),
+// 		url("../fonts/Sequel\ Sans\ Heavy\ Body.otf") format("opentype");
+// }
+
+// @font-face {
+// 	font-family: "Sequel";
+// 	font-style: normal;
+// 	font-weight: 300;
+// 	src: local(""),
+// 		url("../fonts/Sequel\ Sans\ Light\ Body.otf") format("opentype");
+// }
+
+// @font-face {
+// 	font-family: "Sequel";
+// 	font-style: normal;
+// 	font-weight: 500;
+// 	src: local(""),
+// 		url("../fonts/Sequel\ Sans\ Medium\ Body.otf") format("opentype");
+// }
+
+// @font-face {
+// 	font-family: "Sequel";
+// 	font-style: normal;
+// 	font-weight: 600;
+// 	src: local(""),
+// 		url("../fonts/Sequel\ Sans\ Semi\ Bold\ Body.otf") format("opentype");
+// }
+
+// Neue
 
 @font-face {
-	font-family: "Circular";
+	font-family: "Neue";
 	font-style: normal;
 	font-weight: 900;
-	src: local(""), url("../fonts/CircularStd-Black.woff") format("woff");
+	src: local(""), url("../fonts/NeueHelveticaBQBlack.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Neue";
+	font-style: normal;
+	font-weight: 700;
+	src: local(""), url("../fonts/NeueHelveticaBQBold.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Neue";
+	font-style: normal;
+	font-weight: 800;
+	src: local(""), url("../fonts/NeueHelveticaBQHeavy.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Neue";
+	font-style: normal;
+	font-weight: 300;
+	src: local(""), url("../fonts/NeueHelveticaBQLight.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Neue";
+	font-style: normal;
+	font-weight: 500;
+	src: local(""), url("../fonts/NeueHelveticaBQMedium.otf") format("opentype");
 }
