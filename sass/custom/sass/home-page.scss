@@ -1,12 +1,13 @@
 main {
 	&#homePage {
 		section.main-slider {
-			@include padding(110, 0, 170, 0);
+			@include padding(170, 0, 170, 0);
 			background-color: $darker;
 
 			.container {
 				.carousel {
 					.carousel-inner {
+						overflow: visible;
 						.carousel-item {
 							.row {
 								justify-content: space-between;
@@ -45,6 +46,22 @@ main {
 										}
 									}
 								}
+
+								@include set(991) {
+									flex-direction: column-reverse;
+
+									img {
+										width: 100%;
+										max-width: 100%;
+										max-height: 20rem;
+										object-fit: cover;
+										@include margin(0, 0, 20, 0);
+									}
+
+									.carousel-info {
+										max-width: 100%;
+									}
+								}
 							}
 						}
 					}
@@ -65,6 +82,7 @@ main {
 			.container {
 				top: -4rem;
 				position: relative;
+				width: 100%;
 
 				.splide__list {
 					.splide__slide {
@@ -174,7 +192,7 @@ main {
 							display: flex;
 							justify-content: space-between;
 							align-items: flex-end;
-							border-bottom: 1px solid #dddddd;
+							border-bottom: 1px solid $text;
 							@include padding(0, 0, 20, 0);
 							@include margin(0, 0, 25, 0);
 
@@ -275,6 +293,11 @@ main {
 										height: #{toRem(180)};
 										border-radius: #{toRem(10)};
 										object-fit: cover;
+
+										@include set(1920) {
+											height: auto;
+											min-height: 100%;
+										}
 									}
 									.news-info {
 										@include padding(0, 0, 0, 18);
@@ -310,6 +333,11 @@ main {
 								}
 							}
 						}
+
+						@include set(991) {
+							max-width: 100%;
+							flex: 0 0 100%;
+						}
 					}
 					.side-container {
 						.side-title {
@@ -317,38 +345,58 @@ main {
 								@include margin(0, 0, 24, 0);
 							}
 						}
-						.side-card {
-							display: flex;
-							@include margin(0, 0, 25, 0);
-							&__img {
-								img {
-									width: 100%;
-									height: 100%;
-									object-fit: cover;
-									border-radius: #{toRem(4)};
+						.side-posts {
+							.side-card {
+								display: flex;
+								@include margin(0, 0, 25, 0);
+								&__img {
+									img {
+										width: 100%;
+										height: 100%;
+										object-fit: cover;
+										border-radius: #{toRem(4)};
+									}
 								}
-							}
-							&__info {
-								@include padding(0, 0, 0, 0);
+								&__info {
+									@include padding(0, 0, 0, 0);
 
-								h3 {
-									@include font-size(16);
-									line-height: 120%;
-									@include margin(0, 0, 0, 0);
-								}
+									h3 {
+										@include font-size(16);
+										line-height: 120%;
+										@include margin(0, 0, 0, 0);
+									}
 
-								.topic {
-									a {
-										display: flex;
-										span {
-											@include font-size(12);
-											color: $primary;
-											text-decoration: underline;
-											font-weight: 700;
+									.topic {
+										a {
+											display: flex;
+											span {
+												@include font-size(12);
+												color: $primary;
+												text-decoration: underline;
+												font-weight: 700;
+											}
 										}
 									}
 								}
 							}
+
+							@include set(991) {
+								display: grid;
+								grid-template-columns: repeat(2, 1fr);
+								grid-column-gap: #{toRem(25)};
+							}
+						}
+
+						.side-advertisement {
+							@include set(991) {
+								display: grid;
+								grid-template-columns: repeat(2, 1fr);
+								grid-column-gap: #{toRem(25)};
+							}
+						}
+						@include set(991) {
+							max-width: 100%;
+							flex: 0 0 100%;
 						}
 					}
 				}

@@ -29,19 +29,17 @@
 		width: 46%;
 	}
 }
+
 @media screen and (max-width: 1600px) {
 	:root {
 		font-size: 12px;
 	}
 
-	.uk-container-large {
-		width: 71%;
-	}
-
-	.uk-container-medium {
-		width: 58%;
+	.container {
+		max-width: 1080px;
 	}
 }
+
 @media screen and (max-width: 1440px) {
 	:root {
 		font-size: 10px;
@@ -51,9 +49,10 @@
 		width: 70%;
 	}
 }
+
 @media screen and (max-width: 1280px) {
-	.uk-container-large {
-		width: 74%;
+	.container {
+		max-width: 900px;
 	}
 }
 
@@ -67,18 +66,8 @@
 }
 
 @media screen and (max-width: 1024px) {
-	.uk-container-large {
-		width: 80%;
-	}
-
-	.uk-container-xlarge {
-		width: 88%;
-	}
-	.uk-container-xsmall {
-		width: 55%;
-	}
-	.uk-container-medium {
-		width: 66%;
+	.container {
+		width: 75%;
 	}
 }
 
@@ -87,10 +76,7 @@
 		font-size: 16px;
 	}
 
-	.uk-container-large,
-	.uk-container-xsmall,
-	.uk-container-small,
-	.uk-container-medium {
+	.container {
 		width: 90%;
 	}
 }

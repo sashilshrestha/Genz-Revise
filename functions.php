@@ -207,3 +207,24 @@ function gr_custom_wide_ads()
 	]);
 }
 add_action('init', 'gr_custom_wide_ads');
+
+// ----------------------------- Custom Side Ads post type -----------------------------
+function gr_custom_side_ads()
+{
+	register_post_type('Side Ads', [
+		'rewrite' => ['slug' => 'side_ads'],
+		'labels' => [
+			'name' => 'Side Ads',
+			'singular_name' => 'Side Ad',
+			'add_new_item' => 'Add Side Ad',
+			'edit_item' => 'Edit Side Ad',
+		],
+		'menu_icon' => 'dashicons-welcome-view-site',
+		'public' => true,
+		'has_archive' => true,
+		'show_in_rest' => true,
+		'menu_position' => 5,
+		'supports' => ['title', 'editor', 'thumbnail', 'page-attributes'],
+	]);
+}
+add_action('init', 'gr_custom_side_ads');

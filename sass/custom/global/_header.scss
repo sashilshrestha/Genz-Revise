@@ -1,6 +1,9 @@
 nav {
 	z-index: 1;
-	background-color: $darker;
+	background-color: rgba($darker, $alpha: 0.9);
+	position: fixed;
+	width: 100%;
+	backdrop-filter: blur(20px);
 
 	.container {
 		display: flex;
@@ -39,13 +42,18 @@ nav {
 					@include margin(0, 0, 0, 26);
 					text-transform: capitalize;
 					font-weight: 400;
-					color: grey;
+					color: $white;
+					transition: all 0.2s ease-in-out;
 
 					@include set(768) {
-						font-size: 4rem;
+						font-size: 3rem;
 					}
 					@include set(450) {
 						font-size: 2rem;
+					}
+
+					&:hover {
+						color: $text;
 					}
 				}
 
@@ -104,7 +112,7 @@ nav {
 	}
 
 	@include set(768) {
-		background-color: $white;
+		// background-color: $white;
 		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 	}
 }
@@ -138,6 +146,7 @@ nav {
 			.container {
 				.nav-links {
 					// overflow-y: hidden;
+					padding: 0;
 					position: fixed;
 					height: 100vh;
 					top: 0;
@@ -157,6 +166,9 @@ nav {
 						opacity: 1;
 						a {
 							color: #fff;
+							@include set(768) {
+								@include margin(10, 0, 10, 0);
+							}
 						}
 					}
 

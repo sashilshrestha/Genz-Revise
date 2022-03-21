@@ -7084,8 +7084,12 @@ document.addEventListener("DOMContentLoaded", function () {
     lazyLoad: "sequential",
     arrows: false,
     breakpoints: {
-      640: {
-        perPage: 1,
+      // 640: {
+      // 	perPage: 2,
+      // 	drag: true,
+      // },
+      992: {
+        perPage: 2,
         drag: true
       }
     }
