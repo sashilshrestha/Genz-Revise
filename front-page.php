@@ -193,12 +193,25 @@ if ($ispage == 1) {
                                 );
                                 $bigposts = new WP_Query($args);
 
+                                // Wide Query
+                                $adsargs = array(
+                                    'post_type' => 'wideads',
+                                    'post_status' => 'publish',
+                                    'posts_per_page' => 2,
+                                    'order' => 'ASC',
+                                    'orderby' => 'menu_order',
+                                );
+                                $wideposts = new WP_Query($adsargs);
+                                // # Wide Query
+
+                                $post_counter = 0;
+
                                 while ($bigposts->have_posts()) :
                                     $bigposts->the_post();
 
                                     $thumb_id = get_post_thumbnail_id();
                                     $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-
+                                    $post_counter++;
                                 ?>
                                     <div class="news-card">
                                         <img src="<?php echo $thumb_url[0] ?>" alt="">
@@ -224,12 +237,30 @@ if ($ispage == 1) {
                                             <div class="pub-date">February 3, 2022</div>
                                         </div>
                                     </div>
+
+                                    <?php
+                                    // if ($wideposts->have_posts()) {
+                                    //     $wideposts->the_post();
+                                    // echo 'Content' . $post_counter;
+                                    // }
+                                    if ($post_counter % 2 == 0) {
+                                        if ($wideposts->have_posts()) {
+                                            $wideposts->the_post();
+                                            $thumb_id = get_post_thumbnail_id();
+                                            $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+
+                                    ?>
+                                            <img src="<?php echo $thumb_url[0] ?>" alt="" class="wide-ads">
                                 <?php
+                                        }
+                                    }
+
                                 endwhile;
                                 pp_pagination_nav();
                                 wp_reset_postdata();
                                 ?>
                             </div>
+
                         </div>
                     </div>
                     <div class="col-md-3 side-container">

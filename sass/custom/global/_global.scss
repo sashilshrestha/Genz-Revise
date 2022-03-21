@@ -16,31 +16,6 @@ h5 {
 	color: $grey;
 }
 
-.uk-container-xlarge {
-	max-width: 1740px;
-	width: 100%;
-}
-
-.uk-container-large {
-	// max-width: 1484px;
-	width: 100%;
-}
-
-.uk-container-medium {
-	max-width: 1125px;
-	width: 100%;
-}
-
-.uk-container-small {
-	max-width: 1090px;
-	width: 100%;
-}
-
-.uk-container-xsmall {
-	max-width: 968px;
-	width: 100%;
-}
-
 #section-padding-top {
 	padding: 6.25rem 0 0;
 }
@@ -110,4 +85,12 @@ li {
 			transform: scale(1);
 		}
 	}
+}
+
+.wide-ads {
+	height: #{toRem(100)};
+	width: 100%;
+	object-fit: cover;
+	@include margin(0, 0, 46, 0);
+	border-radius: #{toRem(10)};
 }
