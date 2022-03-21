@@ -13,12 +13,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		lazyLoad: "sequential",
 		arrows: false,
 		breakpoints: {
-			992: {
-				perPage: 2,
-				drag: true,
-			},
 			500: {
 				perPage: 1,
+				drag: true,
+			},
+			992: {
+				perPage: 2,
 				drag: true,
 			},
 		},

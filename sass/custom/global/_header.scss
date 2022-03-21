@@ -1,5 +1,5 @@
 nav {
-	z-index: 1;
+	z-index: 5;
 	background-color: rgba($darker, $alpha: 0.9);
 	position: fixed;
 	width: 100%;
@@ -85,7 +85,7 @@ nav {
 			.line {
 				width: 25px;
 				height: 3px;
-				background-color: $primary;
+				background-color: $white;
 				margin: 5px;
 				transition: all 0.3s ease;
 			}
@@ -152,14 +152,14 @@ nav {
 					top: 0;
 					right: 0;
 					bottom: 0;
-					background-color: #2e8bca;
+					background-color: $primary;
 					display: flex;
 					flex-direction: column;
 					justify-content: center;
 					width: 50%;
 					align-items: center;
 					transform: translateX(100%);
-					transition: transform 0.3s ease-in-out;
+					transition: transform 0.2s ease-in-out;
 					z-index: 2;
 					li {
 						margin: 50px 0px 50px 0px;
@@ -167,9 +167,21 @@ nav {
 						a {
 							color: #fff;
 							@include set(768) {
+								color: $dark;
 								@include margin(10, 0, 10, 0);
+								font-weight: 500;
 							}
 						}
+					}
+
+					@include set(500) {
+						background-color: rgba($primary, $alpha: 0.9);
+						background: $primary;
+						background: linear-gradient(
+							135deg,
+							rgba($primary, 0.9) 0%,
+							rgba($secondary, 0.9) 100%
+						);
 					}
 
 					&.nav-active {
@@ -186,7 +198,7 @@ nav {
 						&.toggle {
 							.line1 {
 								transform: rotate(-45deg) translate(-5px, 6px);
-								background-color: $white;
+								background-color: $dark;
 							}
 
 							.line2 {
@@ -194,7 +206,7 @@ nav {
 							}
 							.line3 {
 								transform: rotate(45deg) translate(-5px, -6px);
-								background-color: $white;
+								background-color: $dark;
 							}
 						}
 					}

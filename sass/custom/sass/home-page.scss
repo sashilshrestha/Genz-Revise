@@ -275,10 +275,18 @@ main {
 									&:nth-child(2) {
 										width: 48%;
 										@include height(316);
+
+										@include set(500) {
+											width: 100%;
+										}
 									}
 									&:nth-child(3) {
 										width: 48%;
 										@include height(316);
+
+										@include set(500) {
+											width: 100%;
+										}
 									}
 								}
 							}
@@ -286,6 +294,7 @@ main {
 								.news-card {
 									display: flex;
 									@include margin(0, 0, 46, 0);
+
 									img {
 										min-width: #{toRem(320)};
 										width: #{toRem(320)};
@@ -297,6 +306,12 @@ main {
 										@include set(1920) {
 											height: auto;
 											min-height: 100%;
+										}
+
+										@include set(500) {
+											width: 100%;
+											@include margin(0, 0, 15, 0);
+											height: 16rem;
 										}
 									}
 									.news-info {
@@ -329,6 +344,14 @@ main {
 										.pub-date {
 											color: $secondary;
 										}
+
+										@include set(500) {
+											padding: 0;
+										}
+									}
+
+									@include set(500) {
+										flex-direction: column;
 									}
 								}
 							}
