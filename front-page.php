@@ -17,11 +17,11 @@ if ($ispage == 1) {
                         $args = array(
                             'post_type' => 'post',
                             'posts_per_page' => 1,
-                            'order' => 'DESC',
-                            'orderby' => 'publish_date',
+                            // 'order' => 'DESC',
+                            // 'orderby' => 'publish_date',
                             'meta_query' => array(
                                 array(
-                                    'key' => 'main_news_highlight',
+                                    'key' => 'main_news',
                                     'value' => '1',
                                     'compare' => '=',
                                     'type' => 'NUMERIC',
@@ -41,7 +41,7 @@ if ($ispage == 1) {
                                 <div class="row">
                                     <div class="carousel-info col-md-6">
                                         <h2><?php the_title(); ?></h2>
-                                        <p>5th generation of iPad Pro launched in Nepal With an M1 chip on It. According to Apple, this ...</p>
+                                        <p><?php echo  get_excerpt_trim(20, ' ...') ?></p>
                                         <span class="read-more">
                                             <a href="<?php the_permalink(); ?>">Read More</a>
                                         </span>
@@ -91,8 +91,7 @@ if ($ispage == 1) {
                         <div class="splide__slide">
                             <div class="ft-card">
                                 <a href="<?php the_permalink() ?>">
-                                    <h3><?php //the_title(); 
-                                        ?> Find unique Myspace Layouts Nowadyas in the present context.</h3>
+                                    <h3><?php the_title(); ?></h3>
                                 </a>
                                 <div class="bg-overlay"></div>
                                 <img src="<?php echo $thumb_url[0]; ?>" alt="">
@@ -157,8 +156,7 @@ if ($ispage == 1) {
                                             </div>
                                             <div class="title">
                                                 <a href="<?php the_permalink(); ?>">
-                                                    <h1><?php //the_title(); 
-                                                        ?>Find unique Myspace Layouts Nowadyas in the present context</h1>
+                                                    <h1><?php the_title(); ?></h1>
                                                 </a>
                                             </div>
                                         </div>
@@ -177,7 +175,7 @@ if ($ispage == 1) {
                                 $args = array(
                                     'post_type' => 'post',
                                     'post_status' => 'publish',
-                                    'posts_per_page' => 8,
+                                    'posts_per_page' => 5,
                                     'order' => 'DESC',
                                     'orderby' => 'publish_date',
                                     'meta_query' => array(
@@ -228,11 +226,10 @@ if ($ispage == 1) {
                                                 ?>
                                             </div>
                                             <div class="title">
-                                                <h1><?php the_title(); 
-                                                    ?>Yarsa Games: A Nepali Mobile Gaming App that Crossed 100 M+ Downloads</h1>
+                                                <h1><?php the_title(); ?></h1>
                                             </div>
                                             <p class="desc">
-                                                Pros Durable build Decent display Huge Battery Good software optimization Cons Average camera Average performance…
+                                                <?php echo  get_excerpt_trim(24, ' ...') ?>
                                             </p>
                                             <div class="pub-date">February 3, 2022</div>
                                         </div>
@@ -295,8 +292,7 @@ if ($ispage == 1) {
                                             <img src="<?php echo $thumb_url[0]; ?>" alt="">
                                         </div>
                                         <div class="side-card__info col-md-8">
-                                            <h3><?php //the_title(); 
-                                                ?>Yarsa Games: A Nepali Mobile Gaming App that Crossed 100 M+ Downloads</h3>
+                                            <h3><?php the_title(); ?></h3>
                                             <span class="topic">
                                                 <?php
                                                 $categories = get_the_terms($post->ID, 'category');
