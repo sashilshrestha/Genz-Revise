@@ -1,8 +1,8 @@
 header.single-header {
-	background-color: #effaff;
+	background-color: $darker;
 	.container {
 		.row {
-			@include padding(100, 0, 210, 0);
+			@include padding(200, 0, 210, 0);
 			h1.single-title {
 				@include font-size(65);
 				letter-spacing: #{toRem(-1)};

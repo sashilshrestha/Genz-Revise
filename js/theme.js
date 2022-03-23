@@ -7069,7 +7069,31 @@
     }, false);
   }
 })();
-// Add your JS customizations here
+//use window.scrollY
+var scrollpos = window.scrollY;
+var header = document.getElementById("main-nav");
+
+function add_class_on_scroll() {
+  header.classList.add("header-sticky");
+}
+
+function remove_class_on_scroll() {
+  header.classList.remove("header-sticky");
+}
+
+window.addEventListener("scroll", function () {
+  //Here you forgot to update the value
+  scrollpos = window.scrollY;
+
+  if (scrollpos > 10) {
+    add_class_on_scroll();
+  } else {
+    remove_class_on_scroll();
+  }
+
+  console.log(scrollpos);
+}); // Add your JS customizations here
+
 document.addEventListener("DOMContentLoaded", function () {
   var splide = new Splide(".splide", {
     type: "slide",
@@ -7140,26 +7164,4 @@ const navSlide = () => {
   });
 };
 
-navSlide(); //use window.scrollY
-
-let scrollpos = window.scrollY;
-let header = document.getElementById("navigation");
-
-function add_class_on_scroll() {
-  header.classList.add("header-sticky");
-}
-
-function remove_class_on_scroll() {
-  header.classList.remove("header-sticky");
-}
-
-window.addEventListener("scroll", function () {
-  //Here you forgot to update the value
-  scrollpos = window.scrollY;
-
-  if (scrollpos > 10) {
-    add_class_on_scroll();
-  } else {
-    remove_class_on_scroll();
-  }
-});
+navSlide();

@@ -32,7 +32,7 @@ $container = get_theme_mod('understrap_container_type');
 
 			<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e('Skip to content', 'understrap'); ?></a>
 
-			<nav id="main-nav" class="" aria-labelledby="main-nav-label">
+			<nav id="main-nav" aria-labelledby="main-nav-label">
 				<div class="container">
 
 					<?php echo get_custom_logo(); ?>

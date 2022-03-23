@@ -4,6 +4,7 @@ nav {
 	position: fixed;
 	width: 100%;
 	backdrop-filter: blur(20px);
+	transition: all 0.2s ease-in-out;
 
 	.container {
 		display: flex;
@@ -23,6 +24,7 @@ nav {
 			img {
 				@include height(51);
 				@include width(90);
+				object-fit: contain;
 			}
 		}
 
@@ -117,21 +119,29 @@ nav {
 	}
 }
 
-#navigation {
+#main-nav {
 	&.header-sticky {
-		position: fixed;
 		width: 100%;
 		z-index: 10;
-
-		background: #ffffff;
+		background: $darker;
 
 		background: linear-gradient(
 			90deg,
-			rgba(255, 255, 255, 0.8) 0,
-			#ffffff 100%
+			rgba($darker, 0.8) 0,
+			rgba($dark, 0.6) 100%
 		);
-		-webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
-		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+		box-shadow: 0 6px 20px 0 rgba($darker, 0.55);
+
+		.container {
+			min-height: 4.4rem;
+
+			.navbar-brand {
+				img {
+					height: 2.8rem;
+					width: auto;
+				}
+			}
+		}
 	}
 }
 

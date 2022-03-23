@@ -36,6 +36,18 @@ a {
 	}
 }
 
+.small-news {
+	.news-card {
+		a:hover > * {
+			// color: $primary !important;
+			background: -webkit-linear-gradient(315deg, $primary 25%, $secondary);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+	}
+}
+
 img {
 	transition: all 0.2s ease-in-out;
 }

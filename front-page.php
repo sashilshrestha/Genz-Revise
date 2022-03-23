@@ -175,7 +175,7 @@ if ($ispage == 1) {
                                 $args = array(
                                     'post_type' => 'post',
                                     'post_status' => 'publish',
-                                    'posts_per_page' => 5,
+                                    'posts_per_page' => 4,
                                     'order' => 'DESC',
                                     'orderby' => 'publish_date',
                                     'meta_query' => array(
@@ -226,10 +226,12 @@ if ($ispage == 1) {
                                                 ?>
                                             </div>
                                             <div class="title">
-                                                <h1><?php the_title(); ?></h1>
+                                                <a href="<?php the_permalink(); ?>">
+                                                    <h1><?php the_title(); ?></h1>
+                                                </a>
                                             </div>
                                             <p class="desc">
-                                                <?php echo  get_excerpt_trim(24, ' ...') ?>
+                                                <?php echo  get_excerpt_trim(16, ' ...') ?>
                                             </p>
                                             <div class="pub-date">February 3, 2022</div>
                                         </div>
@@ -292,7 +294,9 @@ if ($ispage == 1) {
                                             <img src="<?php echo $thumb_url[0]; ?>" alt="">
                                         </div>
                                         <div class="side-card__info col-md-8">
-                                            <h3><?php the_title(); ?></h3>
+                                            <a href="<?php the_permalink(); ?>">
+                                                <h3><?php the_title(); ?></h3>
+                                            </a>
                                             <span class="topic">
                                                 <?php
                                                 $categories = get_the_terms($post->ID, 'category');
@@ -353,22 +357,22 @@ if ($ispage == 1) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-9 main-container">
-                        <div class="latest-title">
+                        <!-- <div class="latest-title">
                             <h2>Else Part Ma xa Hai</h2>
                             <a href="" class="view-all">View All</a>
-                        </div>
+                        </div> -->
                         <div class="news-container">
 
                             <div class="small-news">
                                 <?php
+                                $nextpaged = get_query_var('paged');
                                 $args = array(
                                     'post_type' => 'post',
                                     'post_status' => 'publish',
-                                    'posts_per_page' => 10,
+                                    'posts_per_page' => 7,
                                     'order' => 'DESC',
                                     'orderby' => 'publish_date',
-                                    // 'post__not_in' => $not_in_next_three,
-                                    'paged' => $paged,
+                                    'paged' => $nextpaged,
                                     'meta_query' => array(
                                         array(
                                             'key' => 'main_slider_toggler',

@@ -42,9 +42,9 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 
 	</footer><!-- .entry-footer -->
 	<?php
-	if (comments_open()) :
-		comments_template();
-	endif;
+	// if (comments_open()) :
+	// 	comments_template();
+	// endif;
 	?>
 
 </article><!-- #post-## -->

@@ -27,7 +27,7 @@ $container = get_theme_mod('understrap_container_type');
 		$term = get_queried_object();
 		$image = get_field('category_thumbnail', $term);
 		?>
-		<img src="<?php echo $image ?>" alt="">
+		<img src="<?php echo $image ?>" alt="" class="demo">
 	</section>
 
 	<div class="wrapper" id="archive-wrapper">
