@@ -125,3 +125,15 @@ li {
 		border-radius: #{toRem(10)};
 	}
 }
+
+.share-box {
+	display: flex;
+	align-items: center;
+	a {
+		img {
+			width: 2.5rem;
+			height: 2.5rem;
+			@include margin(0, 5, 0, 5);
+		}
+	}
+}

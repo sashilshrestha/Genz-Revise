@@ -11,6 +11,9 @@ defined('ABSPATH') || exit;
 
 get_header();
 $container = get_theme_mod('understrap_container_type');
+
+$thumb_id = get_post_thumbnail_id();
+$thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 ?>
 
 <header class="single-header">
