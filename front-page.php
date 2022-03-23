@@ -175,7 +175,7 @@ if ($ispage == 1) {
                                 $args = array(
                                     'post_type' => 'post',
                                     'post_status' => 'publish',
-                                    'posts_per_page' => 4,
+                                    'posts_per_page' => 8,
                                     'order' => 'DESC',
                                     'orderby' => 'publish_date',
                                     'meta_query' => array(
@@ -369,7 +369,7 @@ if ($ispage == 1) {
                                 $args = array(
                                     'post_type' => 'post',
                                     'post_status' => 'publish',
-                                    'posts_per_page' => 7,
+                                    'posts_per_page' => 11,
                                     'order' => 'DESC',
                                     'orderby' => 'publish_date',
                                     'paged' => $nextpaged,

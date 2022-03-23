@@ -129,6 +129,7 @@ li {
 .share-box {
 	display: flex;
 	align-items: center;
+	@include margin(0, 0, 15, 0);
 	a {
 		img {
 			width: 2.5rem;

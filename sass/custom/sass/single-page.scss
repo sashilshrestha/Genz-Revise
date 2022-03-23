@@ -3,7 +3,7 @@ header.single-header {
 	.container {
 		.row {
 			@include padding(200, 0, 210, 0);
-
+			flex-direction: column;
 			h1.single-title {
 				@include font-size(65);
 				letter-spacing: #{toRem(-1)};

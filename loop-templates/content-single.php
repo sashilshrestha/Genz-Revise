@@ -11,6 +11,11 @@ defined('ABSPATH') || exit;
 
 $thumb_id = get_post_thumbnail_id();
 $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+
+// Gets Current URL
+global $wp;
+$current_url = home_url(add_query_arg(array(), $wp->request));
+$current_url = substr($current_url, 7);
 ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
@@ -37,7 +42,9 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 		<div class="col-md-3 side-container">
 			<div class="share-box">
 				<span>Share on: </span>
-				<a href=""><img src="<?php echo get_template_directory_uri() ?>/src/img/Facebook.png" alt=""></a>
+				<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F<?php echo $current_url; ?>%2F&amp;src=sdkpreparse"><img src="<?php echo get_template_directory_uri() ?>/src/img/Facebook.png" alt="" target="_blank"></a>
+				<a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2F<?php echo $current_url; ?>%2F&amp;ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2F<?php echo $current_url; ?>"><img src="<?php echo get_template_directory_uri() ?>/src/img/Twitter.png" alt="" target="_blank"></a>
+				<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2F<?php echo $current_url; ?>"><img src="<?php echo get_template_directory_uri() ?>/src/img/Linkedin.png" alt="" target="_blank"></a>
 			</div>
 			<div class="side-title">
 				<h3>Top Stories</h3>
