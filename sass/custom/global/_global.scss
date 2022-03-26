@@ -29,7 +29,7 @@ h5 {
 		padding: 3.25rem 0;
 	}
 }
-
+	
 a {
 	&:hover {
 		text-decoration: none;
@@ -38,7 +38,7 @@ a {
 
 .small-news {
 	.news-card {
-		a:hover > * {
+		a:hover > h1 {
 			// color: $primary !important;
 			background: -webkit-linear-gradient(315deg, $primary 25%, $secondary);
 			background-clip: text;

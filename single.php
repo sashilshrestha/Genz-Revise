@@ -18,7 +18,7 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 
 <header class="single-header">
 	<div class="container">
-		<div class="row">
+		<div class="row ">
 			<?php the_title('<h1 class="single-title">', '</h1>'); ?>
 			<div class="single-meta">
 				<?php echo get_the_date() ?>
@@ -31,7 +31,7 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 
 	<div class="<?php echo esc_attr($container); ?>" id="content" tabindex="-1">
 
-		<div class="row">
+		<div class="row head-row">
 
 			<!-- Do the left sidebar check -->
 			<?php //get_template_part('global-templates/left-sidebar-check'); 

@@ -43,6 +43,7 @@ main {
 											@include padding(10, 18, 10, 18);
 											color: $darker;
 											border-radius: #{toRem(6)};
+											@include font-size(16);
 										}
 									}
 								}
@@ -87,7 +88,7 @@ main {
 				.splide__list {
 					.splide__slide {
 						.ft-card {
-							min-height: #{toRem(254)};
+							max-height: #{toRem(254)};
 							position: relative;
 
 							img {
@@ -349,6 +350,7 @@ main {
 										}
 										.pub-date {
 											color: $secondary;
+											@include font-size(16);
 										}
 
 										@include set(500) {

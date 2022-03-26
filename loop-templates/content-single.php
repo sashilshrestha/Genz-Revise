@@ -42,8 +42,8 @@ $current_url = substr($current_url, 7);
 		<div class="col-md-3 side-container">
 			<div class="share-box">
 				<span>Share on: </span>
-				<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F<?php echo $current_url; ?>%2F&amp;src=sdkpreparse"><img src="<?php echo get_template_directory_uri() ?>/src/img/Facebook.png" alt="" target="_blank"></a>
-				<a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2F<?php echo $current_url; ?>%2F&amp;ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2F<?php echo $current_url; ?>"><img src="<?php echo get_template_directory_uri() ?>/src/img/Twitter.png" alt="" target="_blank"></a>
+				<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F<?php echo $current_url; ?>&amp;src=sdkpreparse"><img src="<?php echo get_template_directory_uri() ?>/src/img/Facebook.png" alt="" target="_blank"></a>
+				<a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2F<?php echo $current_url; ?>&amp;ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2F<?php echo $current_url; ?>"><img src="<?php echo get_template_directory_uri() ?>/src/img/Twitter.png" alt="" target="_blank"></a>
 				<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2F<?php echo $current_url; ?>"><img src="<?php echo get_template_directory_uri() ?>/src/img/Linkedin.png" alt="" target="_blank"></a>
 			</div>
 			<div class="side-title">
