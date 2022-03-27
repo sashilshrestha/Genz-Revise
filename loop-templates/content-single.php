@@ -132,12 +132,7 @@ $current_url = substr($current_url, 7);
 			</div>
 		</div>
 	</div>
-
-	<footer class="entry-footer">
-
-		<?php understrap_entry_footer(); ?>
-
-	</footer><!-- .entry-footer -->
+	
 	<?php
 	// if (comments_open()) :
 	// 	comments_template();

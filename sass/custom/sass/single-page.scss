@@ -14,6 +14,10 @@ header.single-header {
 				letter-spacing: #{toRem(-1)};
 				font-weight: 700;
 				line-height: 120%;
+
+				@include set(500) {
+					font-size: 3.5rem;
+				}
 			}
 			.single-meta {
 				@include font-size(32);

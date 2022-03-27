@@ -29,8 +29,9 @@ h5 {
 		padding: 3.25rem 0;
 	}
 }
-	
+
 a {
+	color: $primary;
 	&:hover {
 		text-decoration: none;
 	}
@@ -69,12 +70,13 @@ img {
 					@include margin(0, 5, 0, 5);
 					width: 2rem;
 					height: 2rem;
-					background-color: rgba($primary, $alpha: 0.7);
+					background-color: rgba($primary, $alpha: 0.5);
 					color: white;
 					border-radius: 50%;
 					display: flex;
 					align-items: center;
 					justify-content: center;
+					@include font-size(16);
 					&.switcher-pages {
 						width: fit-content;
 						height: auto;
