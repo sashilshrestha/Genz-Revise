@@ -132,7 +132,7 @@ $current_url = substr($current_url, 7);
 			</div>
 		</div>
 	</div>
-	
+
 	<?php
 	// if (comments_open()) :
 	// 	comments_template();
