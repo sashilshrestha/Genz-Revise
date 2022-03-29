@@ -34,6 +34,7 @@ a {
 	color: $primary;
 	&:hover {
 		text-decoration: none;
+		color: $secondary;
 	}
 }
 

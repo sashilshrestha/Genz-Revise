@@ -24,10 +24,24 @@ $container = get_theme_mod('understrap_container_type');
 				</div>
 			</div>
 			<div class="col-md-4 ft-middle">
-				This is center
+				<h1>Contact Info</h1>
+				<div class="address">
+					<p>Adress:</p>
+					<p>New Baneshwor, Kathmandu, Nepal</p>
+				</div>
+				<div class="mobile">
+					<p>Mobile:</p>
+					<p>+977 9845974686</p>
+				</div>
+				<div class="social">
+					<p>Social Links:</p>
+					<a href=""><img src="<?php echo get_template_directory_uri() ?>/src/img/Facebook.png" alt="" target="_blank"></a>
+					<a href=""><img src="<?php echo get_template_directory_uri() ?>/src/img/Twitter.png" alt="" target="_blank"></a>
+					<a href=""><img src="<?php echo get_template_directory_uri() ?>/src/img/Linkedin.png" alt="" target="_blank"></a>
+				</div>
 			</div>
 			<div class="col-md-4 ft-right">
-				This is right
+				<?php dynamic_sidebar('right-sidebar') ?>
 			</div>
 		</div>
 	</div>

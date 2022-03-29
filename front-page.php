@@ -246,7 +246,9 @@ if ($ispage == 1) {
                                             $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 
                                     ?>
-                                            <img src="<?php echo $thumb_url[0] ?>" alt="" class="wide-ads">
+                                            <a href="<?php echo get_field('ads_link') ?>" target="_blank">
+                                                <img src="<?php echo $thumb_url[0] ?>" alt="" class="wide-ads">
+                                            </a>
                                 <?php
                                             $not_in_wideads_three[] = get_the_ID();
                                         }
@@ -356,7 +358,9 @@ if ($ispage == 1) {
                                             $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 
                                     ?>
-                                            <img src="<?php echo $thumb_url[0] ?>" alt="" class="wide-ads">
+                                            <a href="<?php echo get_field('ads_link') ?>" target="_blank">
+                                                <img src="<?php echo $thumb_url[0] ?>" alt="" class="wide-ads">
+                                            </a>
                                 <?php
                                         }
                                     }

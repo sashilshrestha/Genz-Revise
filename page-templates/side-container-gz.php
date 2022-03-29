@@ -73,7 +73,9 @@
         $thumb_id = get_post_thumbnail_id();
         $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
     ?>
-        <img src="<?php echo $thumb_url[0] ?>" alt="">
+        <a href="<?php echo get_field('ads_link') ?>" target="_blank">
+            <img src="<?php echo $thumb_url[0] ?>" alt="">
+        </a>
     <?php
         $not_in_next_two_ads[] = get_the_ID();
     endwhile;
@@ -159,7 +161,9 @@
         $thumb_id = get_post_thumbnail_id();
         $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
     ?>
-        <img src="<?php echo $thumb_url[0] ?>" alt="">
+        <a href="<?php echo get_field('ads_link') ?>" target="_blank">
+            <img src="<?php echo $thumb_url[0] ?>" alt="">
+        </a>
     <?php
     endwhile;
     wp_reset_postdata();

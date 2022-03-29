@@ -203,7 +203,7 @@ function gr_custom_wide_ads()
 		'has_archive' => true,
 		'show_in_rest' => true,
 		'menu_position' => 4,
-		'supports' => ['title', 'editor', 'thumbnail', 'page-attributes'],
+		'supports' => ['title', 'editor', 'thumbnail', 'page-attributes', 'excerpt'],
 	]);
 }
 add_action('init', 'gr_custom_wide_ads');
@@ -224,7 +224,7 @@ function gr_custom_side_ads()
 		'has_archive' => true,
 		'show_in_rest' => true,
 		'menu_position' => 5,
-		'supports' => ['title', 'editor', 'thumbnail', 'page-attributes'],
+		'supports' => ['title', 'editor', 'thumbnail', 'page-attributes', 'excerpt'],
 	]);
 }
 add_action('init', 'gr_custom_side_ads');

@@ -28,7 +28,6 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 </header><!-- .entry-header -->
 
 <div class="wrapper" id="single-wrapper">
-
 	<div class="<?php echo esc_attr($container); ?>" id="content" tabindex="-1">
 
 		<div class="row head-row">
@@ -61,7 +60,6 @@ $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 		</div><!-- .row -->
 
 	</div><!-- #content -->
-
 </div><!-- #single-wrapper -->
 
 <?php

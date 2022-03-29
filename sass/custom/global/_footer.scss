@@ -1,10 +1,70 @@
 footer {
 	background-color: $darker;
 	@include padding(90, 0, 90, 0);
+	@include margin(60, 0, 0, 0);
 	.container {
 		.row {
 			.ft-left {
 				.ft-logo {
+					a {
+						@include margin(0, 0, 20, 0);
+						img {
+							object-fit: contain;
+							height: 5rem;
+							width: auto;
+						}
+					}
+					p {
+						@include font-size(20);
+					}
+				}
+			}
+			.ft-middle {
+				padding-top: 2.5rem;
+				h1 {
+					@include font-size(28);
+					@include margin(0, 0, 30, 0);
+				}
+				div {
+					@include margin(0, 0, 15, 0);
+					p {
+						@include font-size(20);
+						margin: 0;
+					}
+
+					&.social {
+						a {
+							img {
+								@include width(40);
+								@include height(40);
+							}
+							@include margin(0, 5, 0, 0);
+						}
+					}
+				}
+			}
+			.ft-right {
+				padding-top: 2.5rem;
+				h1,
+				h2 {
+					@include font-size(28);
+					@include margin(0, 0, 30, 0);
+				}
+				.wp-block-group__inner-container {
+					ul {
+						li {
+							@include margin(0, 0, 10, 0);
+							a {
+								@include font-size(20);
+								color: $text;
+								line-height: 120%;
+
+								&:hover {
+									color: $primary;
+								}
+							}
+						}
+					}
 				}
 			}
 		}
