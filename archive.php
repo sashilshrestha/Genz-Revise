@@ -48,13 +48,14 @@ $container = get_theme_mod('understrap_container_type');
 												<?php
 												$category = get_queried_object();
 												$postcat = $category->term_id;
+												$nextpaged = get_query_var('paged');
 
 												$args = array(
-													'posts_per_page' => 10,
+													'post_type' => 'post',
+													'posts_per_page' => -1,
 													'order' => 'DESC',
 													'post_status' => 'publish',
 													'orderby' => 'publish_date',
-													'paged' => $paged,
 													'cat' => $postcat
 												);
 												$categoryposts = new WP_Query($args);
@@ -68,12 +69,13 @@ $container = get_theme_mod('understrap_container_type');
 													$thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 
 												?>
-													<div class="news-card" id="post-<?php the_ID(); ?>">
+													<div class="news-card">
 														<img src="<?php echo $thumb_url[0] ?>" alt="">
 														<div class="news-info">
 															<div class="topic">
 																<?php
 																$categories = get_the_terms($post->ID, 'category');
+
 																foreach ($categories as $category) {
 																?>
 																	<a href="<?php echo $category_link = get_category_link($category->term_id); ?>"><span><?php echo $category->name; ?></span></a>
@@ -82,12 +84,14 @@ $container = get_theme_mod('understrap_container_type');
 																?>
 															</div>
 															<div class="title">
-																<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+																<a href="<?php the_permalink(); ?>">
+																	<h1><?php the_title(); ?></h1>
+																</a>
 															</div>
 															<p class="desc">
-																Pros Durable build Decent display Huge Battery Good software optimization Cons Average camera Average performance…
+																<?php echo  get_excerpt_trim(16, ' ...') ?>
 															</p>
-															<div class="pub-date"><?php understrap_posted_on(); ?></div>
+															<div class="pub-date"><?php echo get_the_date() ?></div>
 														</div>
 													</div>
 											<?php
@@ -104,7 +108,9 @@ $container = get_theme_mod('understrap_container_type');
 										</div>
 									</div>
 									<div class="col-md-3 side-container">
-										<?php echo get_sidebar(); ?>
+										<?php
+										include("wp-content/themes/Genz-Revise/page-templates/side-container-gz.php")
+										?>
 									</div>
 								</div>
 							</div>

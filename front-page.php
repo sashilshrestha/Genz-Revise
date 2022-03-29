@@ -248,6 +248,7 @@ if ($ispage == 1) {
                                     ?>
                                             <img src="<?php echo $thumb_url[0] ?>" alt="" class="wide-ads">
                                 <?php
+                                            $not_in_wideads_three[] = get_the_ID();
                                         }
                                     }
 
@@ -260,174 +261,9 @@ if ($ispage == 1) {
                         </div>
                     </div>
                     <div class="col-md-3 side-container">
-                        <div class="side-title">
-                            <h3>Top Stories</h3>
-                        </div>
-                        <div class="side-posts">
-                            <?php
-                            $args = array(
-                                'post_type' => 'post',
-                                'posts_per_page' => 5,
-                                'order' => 'DESC',
-                                'orderby' => 'publish_date',
-                                'meta_query' => array(
-                                    array(
-                                        'key' => 'top_stories',
-                                        'value' => '1',
-                                        'compare' => '=',
-                                        'type' => 'NUMERIC',
-                                    ),
-                                ),
-                            );
-                            $allposts = new WP_Query($args);
-
-                            while ($allposts->have_posts()) :
-                                $allposts->the_post();
-
-                                $thumb_id = get_post_thumbnail_id();
-                                $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-                            ?>
-
-                                <div class="side-card">
-                                    <div class="row">
-                                        <div class="side-card__img col-md-4">
-                                            <img src="<?php echo $thumb_url[0]; ?>" alt="">
-                                        </div>
-                                        <div class="side-card__info col-md-8">
-                                            <a href="<?php the_permalink(); ?>">
-                                                <h3><?php the_title(); ?></h3>
-                                            </a>
-                                            <span class="topic">
-                                                <?php
-                                                $categories = get_the_terms($post->ID, 'category');
-
-                                                foreach ($categories as $category) {
-                                                ?>
-                                                    <a href="<?php echo $category_link = get_category_link($category->term_id); ?>"><span><?php echo $category->name; ?></span></a>
-                                                <?php
-                                                }
-                                                ?>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php
-                            endwhile;
-                            $not_in_next_main[] = get_the_ID();
-                            wp_reset_postdata();
-                            ?>
-                        </div>
-                        <div class="side-advertisement">
-                            <?php
-                            // Side Query
-                            $adsargs = array(
-                                'post_type' => 'sideads',
-                                'post_status' => 'publish',
-                                'posts_per_page' => 2,
-                                'order' => 'ASC',
-                                'orderby' => 'menu_order',
-                            );
-                            $sideposts = new WP_Query($adsargs);
-                            // # Side Query
-
-                            while ($sideposts->have_posts()) :
-                                $sideposts->the_post();
-
-                                $thumb_id = get_post_thumbnail_id();
-                                $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-                            ?>
-                                <img src="<?php echo $thumb_url[0] ?>" alt="">
-                            <?php
-                            endwhile;
-                            $not_in_next_two_ads[] = get_the_ID();
-                            wp_reset_postdata();
-                            ?>
-                        </div>
-                        <div class="side-title">
-                            <h3>Featured News</h3>
-                        </div>
-                        <div class="side-posts">
-                            <?php
-                            $args = array(
-                                'post_type' => 'post',
-                                'post_status' => 'publish',
-                                'posts_per_page' => 4,
-                                'order' => 'DESC',
-                                'orderby' => 'publish_date',
-                                'meta_query' => array(
-                                    array(
-                                        'key' => 'main_slider_toggler',
-                                        'value' => '1',
-                                        'compare' => '=',
-                                        'type' => 'NUMERIC',
-                                    ),
-                                ),
-                            );
-                            $allposts = new WP_Query($args);
-
-                            while ($allposts->have_posts()) :
-                                $allposts->the_post();
-
-                                $thumb_id = get_post_thumbnail_id();
-                                $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-                            ?>
-
-                                <div class="side-card">
-                                    <div class="row">
-                                        <div class="side-card__img col-md-4">
-                                            <img src="<?php echo $thumb_url[0]; ?>" alt="">
-                                        </div>
-                                        <div class="side-card__info col-md-8">
-                                            <a href="<?php the_permalink(); ?>">
-                                                <h3><?php the_title(); ?></h3>
-                                            </a>
-                                            <span class="topic">
-                                                <?php
-                                                $categories = get_the_terms($post->ID, 'category');
-
-                                                foreach ($categories as $category) {
-                                                ?>
-                                                    <a href="<?php echo $category_link = get_category_link($category->term_id); ?>"><span><?php echo $category->name; ?></span></a>
-                                                <?php
-                                                }
-                                                ?>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php
-                            endwhile;
-                            $not_in_next_main[] = get_the_ID();
-                            wp_reset_postdata();
-                            ?>
-                        </div>
-                        <div class="side-advertisement">
-                            <?php
-                            // Side Query
-                            $adsargs = array(
-                                'post_type' => 'sideads',
-                                'post_status' => 'publish',
-                                'posts_per_page' => 2,
-                                'order' => 'ASC',
-                                'orderby' => 'menu_order',
-                                'post__not_in' => $not_in_next_two_ads,
-                            );
-                            $sideposts = new WP_Query($adsargs);
-                            // # Side Query
-
-                            while ($sideposts->have_posts()) :
-                                $sideposts->the_post();
-
-                                $thumb_id = get_post_thumbnail_id();
-                                $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-                            ?>
-                                <img src="<?php echo $thumb_url[0] ?>" alt="">
-                            <?php
-                            endwhile;
-                            $not_in_next_two_ads[] = get_the_ID();
-                            wp_reset_postdata();
-                            ?>
-                        </div>
+                        <?php
+                        include("wp-content/themes/Genz-Revise/page-templates/side-container-gz.php")
+                        ?>
                     </div>
                 </div>
             </div>
@@ -441,12 +277,8 @@ if ($ispage == 1) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-9 main-container">
-                        <!-- <div class="latest-title">
-                            <h2>Else Part Ma xa Hai</h2>
-                            <a href="" class="view-all">View All</a>
-                        </div> -->
                         <div class="news-container">
-
+                            <!-- List of Normal News -->
                             <div class="small-news">
                                 <?php
                                 $nextpaged = get_query_var('paged');
@@ -465,31 +297,70 @@ if ($ispage == 1) {
                                             'type' => 'NUMERIC',
                                         ),
                                     ),
-
                                 );
                                 $bigposts = new WP_Query($args);
+
+                                // Wide Query
+                                $adsargs = array(
+                                    'post_type' => 'wideads',
+                                    'post_status' => 'publish',
+                                    'posts_per_page' => -1,
+                                    'order' => 'ASC',
+                                    'orderby' => 'menu_order',
+                                );
+
+                                $wideposts = new WP_Query($adsargs);
+                                // # Wide Query
+
+                                $post_counter = 0;
 
                                 while ($bigposts->have_posts()) :
                                     $bigposts->the_post();
 
                                     $thumb_id = get_post_thumbnail_id();
                                     $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-
+                                    $post_counter++;
                                 ?>
                                     <div class="news-card">
                                         <img src="<?php echo $thumb_url[0] ?>" alt="">
                                         <div class="news-info">
-                                            <div class="topic"><span>Games</span></div>
+                                            <div class="topic">
+                                                <?php
+                                                $categories = get_the_terms($post->ID, 'category');
+
+                                                foreach ($categories as $category) {
+                                                ?>
+                                                    <a href="<?php echo $category_link = get_category_link($category->term_id); ?>"><span><?php echo $category->name; ?></span></a>
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
                                             <div class="title">
-                                                <h1><?php the_title(); ?></h1>
+                                                <a href="<?php the_permalink(); ?>">
+                                                    <h1><?php the_title(); ?></h1>
+                                                </a>
                                             </div>
                                             <p class="desc">
-                                                Pros Durable build Decent display Huge Battery Good software optimization Cons Average camera Average performance…
+                                                <?php echo  get_excerpt_trim(16, ' ...') ?>
                                             </p>
                                             <div class="pub-date"><?php echo get_the_date() ?></div>
                                         </div>
                                     </div>
+
+                                    <?php
+
+                                    if ($post_counter % 2 == 0) {
+                                        if ($wideposts->have_posts()) {
+                                            $wideposts->the_post();
+                                            $thumb_id = get_post_thumbnail_id();
+                                            $thumb_url = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+
+                                    ?>
+                                            <img src="<?php echo $thumb_url[0] ?>" alt="" class="wide-ads">
                                 <?php
+                                        }
+                                    }
+
                                 endwhile;
                                 pp_pagination_nav();
                                 wp_reset_postdata();
@@ -497,7 +368,9 @@ if ($ispage == 1) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 side-container"></div>
+                    <div class="col-md-3 side-container"> <?php
+                                                            include("wp-content/themes/Genz-Revise/page-templates/side-container-gz.php")
+                                                            ?></div>
                 </div>
             </div>
         </section>

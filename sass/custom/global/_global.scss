@@ -114,20 +114,6 @@ li {
 	border-radius: #{toRem(10)};
 }
 
-.side-container {
-	// height: #{toRem(236)};
-	// width: 100%;
-
-	img {
-		// @include height(236);
-		height: auto;
-		width: 100%;
-		object-fit: cover;
-		@include margin(0, 0, 26, 0);
-		border-radius: #{toRem(10)};
-	}
-}
-
 .share-box {
 	display: flex;
 	align-items: center;
@@ -138,5 +124,106 @@ li {
 			height: 2.5rem;
 			@include margin(0, 5, 0, 5);
 		}
+	}
+}
+
+figure {
+	img {
+		width: 100%;
+	}
+}
+
+.side-container {
+	.side-title {
+		h3 {
+			border-bottom: 1px solid $text;
+			@include padding(0, 0, 24, 0);
+			@include margin(0, 0, 27, 0);
+		}
+	}
+	.side-posts {
+		.side-card {
+			display: flex;
+			@include margin(0, 0, 25, 0);
+			&__img {
+				@include set(500) {
+					height: 7rem;
+					@include margin(0, 0, 10, 0);
+				}
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					border-radius: #{toRem(4)};
+				}
+			}
+			&__info {
+				@include padding(0, 0, 0, 0);
+
+				h3 {
+					@include font-size(16);
+					line-height: 120%;
+					@include margin(0, 0, 0, 0);
+
+					@include set(500) {
+						@include font-size(22);
+					}
+				}
+
+				.topic {
+					a {
+						display: flex;
+						span {
+							@include font-size(12);
+							color: $primary;
+							text-decoration: underline;
+							font-weight: 700;
+
+							@include set(500) {
+								@include font-size(16);
+							}
+						}
+					}
+				}
+
+				@include set(500) {
+					padding: 0 15px;
+				}
+			}
+		}
+
+		@include set(991) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-column-gap: #{toRem(25)};
+		}
+	}
+
+	.side-advertisement {
+		@include set(991) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-column-gap: #{toRem(25)};
+		}
+
+		img {
+			// @include height(236);
+			height: auto;
+			width: 100%;
+			object-fit: cover;
+			@include margin(0, 0, 26, 0);
+			border-radius: #{toRem(10)};
+		}
+	}
+
+	@include set(991) {
+		max-width: 100%;
+		flex: 0 0 100%;
+	}
+}
+
+main#nextPage {
+	.side-container {
+		margin: 7.2rem 0 0 0;
 	}
 }
