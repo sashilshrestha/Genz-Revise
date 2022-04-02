@@ -8,6 +8,7 @@ get_header();
 $ispage = (get_query_var('paged')) ? get_query_var('paged') : 1;
 if ($ispage == 1) {
 ?>
+
     <main id="homePage">
         <section class="main-slider">
             <div class="container">

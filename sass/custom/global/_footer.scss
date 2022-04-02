@@ -1,6 +1,6 @@
 footer {
 	background-color: $darker;
-	@include padding(90, 0, 90, 0);
+	@include padding(90, 0, 0, 0);
 	@include margin(60, 0, 0, 0);
 	.container {
 		.row {

@@ -45,6 +45,27 @@ $container = get_theme_mod('understrap_container_type');
 			</div>
 		</div>
 	</div>
+	<div class="container copyright">
+		<div class="footer-menu">
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location'  => 'footer-menu',
+					'container_class' => '',
+					'container_id'    => '',
+					'menu_class'      => 'nav-links',
+					'fallback_cb'     => '',
+					'menu_id'         => '',
+					'depth'           => 2,
+					'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
+				)
+			);
+			?>
+		</div>
+		<div class="copyright-message">
+			<p>Copyright 2021 GenzRevise. All Rights Reserved</p>
+		</div>
+	</div>
 </footer>
 
 </div><!-- #page we need this extra closing tag here -->

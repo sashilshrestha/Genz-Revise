@@ -228,3 +228,14 @@ function gr_custom_side_ads()
 	]);
 }
 add_action('init', 'gr_custom_side_ads');
+
+// ----------------------------- Custom Side Ads post type -----------------------------
+function my_custom_menu()
+{
+	register_nav_menus(
+		array(
+			'footer-menu' => _('Footer Menu'),
+		)
+	);
+}
+add_action('init', 'my_custom_menu');
