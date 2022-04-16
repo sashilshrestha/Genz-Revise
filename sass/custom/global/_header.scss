@@ -23,7 +23,7 @@ nav {
 		.navbar-brand {
 			img {
 				@include height(51);
-				max-width: #{toRem(90)};
+				@include width(90);
 				object-fit: contain;
 			}
 		}
