@@ -16,14 +16,16 @@ nav {
 			font-size: 2rem;
 			img {
 				@include height(51);
-				@include width(90);
+				// @include width(90);
+				max-width: #{toRem(90)};
 			}
 		}
 
 		.navbar-brand {
 			img {
 				@include height(51);
-				@include width(90);
+				// @include width(90);
+				max-width: #{toRem(90)};
 				object-fit: contain;
 			}
 		}
