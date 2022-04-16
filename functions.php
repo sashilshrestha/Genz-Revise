@@ -267,4 +267,3 @@ add_action('init', 'my_custom_menu');
 // 	return $qs;
 // }
 // add_filter('request', 'fix_category_pagination');
-
