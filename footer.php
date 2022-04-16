@@ -45,6 +45,8 @@ $container = get_theme_mod('understrap_container_type');
 			</div>
 		</div>
 	</div>
+</footer>
+<div class="footer-last">
 	<div class="container copyright">
 		<div class="footer-menu">
 			<?php
@@ -66,7 +68,7 @@ $container = get_theme_mod('understrap_container_type');
 			<p>Copyright 2021 GenzRevise. All Rights Reserved</p>
 		</div>
 	</div>
-</footer>
+</div>
 
 </div><!-- #page we need this extra closing tag here -->
 
