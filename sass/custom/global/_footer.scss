@@ -83,6 +83,7 @@ footer {
 					padding: 0;
 					margin: 0;
 					justify-content: center;
+					flex-wrap: wrap;
 
 					li {
 						list-style: none;
@@ -101,6 +102,10 @@ footer {
 
 						&:last-child {
 							border: none;
+						}
+
+						@include set(555) {
+							@include margin(0, 0, 12, 0);
 						}
 					}
 				}

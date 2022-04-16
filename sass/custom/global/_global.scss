@@ -233,11 +233,21 @@ main#nextPage {
 	._2pi8 {
 		background-color: $dark;
 		color: $text;
-		
+
 		._ohe {
 			span {
 				color: $text;
 			}
 		}
+	}
+}
+
+#full-width-page-wrapper {
+	padding: 10rem 0 0 0;
+
+	.entry-title {
+		text-align: center;
+		@include margin(0, 0, 60, 0);
+		@include font-size(60);
 	}
 }
