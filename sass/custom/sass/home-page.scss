@@ -17,6 +17,7 @@ main {
 									max-width: #{toRem(616)};
 									@include height(392);
 									border-radius: #{toRem(20)};
+									object-fit: cover;
 								}
 
 								.carousel-info {

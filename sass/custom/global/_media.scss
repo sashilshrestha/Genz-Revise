@@ -8,26 +8,6 @@
 	:root {
 		font-size: 13.333px;
 	}
-
-	.uk-container-xlarge {
-		width: 85%;
-	}
-
-	.uk-container-large {
-		width: 68%;
-	}
-
-	.uk-container-medium {
-		width: 60%;
-	}
-
-	.uk-container-small {
-		width: 57%;
-	}
-
-	.uk-container-xsmall {
-		width: 46%;
-	}
 }
 
 @media screen and (max-width: 1600px) {
@@ -44,10 +24,6 @@
 	:root {
 		font-size: 10px;
 	}
-
-	.uk-container-large {
-		width: 70%;
-	}
 }
 
 @media screen and (max-width: 1280px) {
@@ -60,15 +36,12 @@
 	:root {
 		font-size: 8.6px;
 	}
-	.uk-container-large {
-		width: 74%;
-	}
 }
 
 @media screen and (max-width: 1024px) {
-	.container {
-		width: 75%;
-	}
+	// .container {
+	// 	width: 75%;
+	// }
 }
 
 @media screen and (max-width: 992px) {
